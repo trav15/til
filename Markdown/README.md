@@ -30,3 +30,4 @@ Try to put a blank line before...
 
 - [Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
 - [Markdown Guide - Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+- [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)
