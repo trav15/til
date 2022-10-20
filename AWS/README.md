@@ -1,3 +1,3 @@
 # Amazon Web Services
 
-- [DynamoDB](DynamoDB)
+- [DynamoDB](DynamoDB.md)
