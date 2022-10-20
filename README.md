@@ -1,6 +1,6 @@
 # Today I Learned
 
-Chronicling what I am learning and the resources of that knowledge. Inspiration from [Josh Branchaud](https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9)'s [TIL](https://github.com/jbranchaud/til)
+Chronicling what I am learning and the resources of that knowledge. Inspiration from [Josh Branchaud](https://dev.to/jbranchaud/how-i-built-a-learning-machine-45k9)'s [TIL](https://github.com/jbranchaud/til) and [Learn In Public](https://www.swyx.io/learn-in-public/).
 
 
 ## Topics
