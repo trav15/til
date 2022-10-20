@@ -5,6 +5,8 @@ Chronicling what I am learning and the resources of that knowledge. Inspiration 
 ## Topics
 - [TypeScript](TypeScript)
 - [Remix](Remix)
+- [AWS](AWS)
+- [Markdown](Markdown)
 
 ## Interested to Learn More About
 - [Building A Second Brain](https://www.keepproductive.com/blog/how-to-build-a-second-brain)
