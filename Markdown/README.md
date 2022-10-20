@@ -26,7 +26,7 @@ Try to put a blank line before...
 - ==Highlighting== - This isn’t common, but some Markdown processors allow you to highlight text. To highlight words, use two equal signs (==) before and after the words.
 - Text can’t be underlined in Markdown. Although this is possible using the '<u>' tags in HTML, it’s usually inadvisable to do so. That’s because underlined text is used for hyperlinks online and it’s best to avoid confusing the two uses.
 
-## Resources
+## *Resources*
 
 - [Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
 - [Markdown Guide - Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
