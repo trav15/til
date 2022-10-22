@@ -46,9 +46,28 @@ import axios from 'axios'
 const fetcher = url => axios.get(url).then(res => res.data)
 ```
 
+## TypeScript
+
+Next.js provides specific types for use such as `GetStaticProps` and `GetServerSideProps`
+```
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  // ...
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // ...
+};
+```
+
 ## *Resources*
 
 - [Next.js Docs](https://nextjs.org/docs/getting-started)
 - [SWR (React Hooks for Data Fetching)](https://swr.vercel.app/)
 - [Beginners Guide to SWR Fetching in React](https://blog.openreplay.com/beginner-s-guide-to-swr-data-fetching-in-react)
-- [Migrate to Typescript](https://nextjs.org/learn/excel/typescript)
+- [Next.js's TypeScript docs](https://nextjs.org/docs/basic-features/typescript)
