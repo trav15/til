@@ -19,7 +19,7 @@ Next.js lets you choose which pre-rendering form to use for each page. You can c
 [SWR](https://swr.vercel.app/) is highly recommended if you are fetching data on the client-side. It handles caching, revalidation, focus tracking, refetching on intervals, and more.
 
 Example usage:
-```
+```js
 import useSWR from 'swr'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
@@ -40,7 +40,8 @@ function Profile() {
 ```
 
 You have to create the `fetcher` function. It can be asynchronous and can use fetch polyfill (which is built-in to Next.js) or any data-fetching library such as Axios. Example:
-```
+
+```js
 import axios from 'axios'
 
 const fetcher = url => axios.get(url).then(res => res.data)
@@ -49,7 +50,8 @@ const fetcher = url => axios.get(url).then(res => res.data)
 ## TypeScript
 
 Next.js provides specific types for use such as `GetStaticProps` and `GetServerSideProps`
-```
+
+```js
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async (context) => {
