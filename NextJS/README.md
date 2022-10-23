@@ -47,6 +47,8 @@ import axios from 'axios'
 const fetcher = url => axios.get(url).then(res => res.data)
 ```
 
+You can use `mutate` returned from `useSWR` for updates/revalidation. [Source: SWR docs](https://swr.vercel.app/docs/mutation)
+
 ## TypeScript
 
 Next.js provides specific types for use such as `GetStaticProps` and `GetServerSideProps`
