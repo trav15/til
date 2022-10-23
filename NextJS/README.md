@@ -47,6 +47,12 @@ import axios from 'axios'
 const fetcher = url => axios.get(url).then(res => res.data)
 ```
 
+`fetcher` function in TypeScript:
+
+```ts
+const fetcher = (arg: any, ...args: any) => fetch(arg, ...args).then((res) => res.json())
+```
+
 You can use `mutate` returned from `useSWR` for updates/revalidation. [Source: SWR docs](https://swr.vercel.app/docs/mutation)
 
 ## TypeScript
