@@ -19,6 +19,15 @@ Here is a list of important information about EBS Volumes:
 - Amazon EBS encryption uses 256-bit Advanced Encryption Standard algorithms (AES-256)
 - EBS Volumes offer 99.999% SLA.
 
+### Amazon Data Lifecycle Manager (Amazon DLM)
+
+You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation, retention, and deletion of snapshots taken to back up your Amazon EBS volumes. Automating snapshot management helps you to:
+- Protect valuable data by enforcing a regular backup schedule.
+- Retain backups as required by auditors or internal compliance.
+- Reduce storage costs by deleting outdated backups.
+
+Combined with the monitoring features of Amazon CloudWatch Events and AWS CloudTrail, Amazon DLM provides a complete backup solution for EBS volumes at no additional cost.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
 
 ## AWS Compute Optimizer 
 
