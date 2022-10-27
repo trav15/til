@@ -4,6 +4,7 @@
 
 - [DynamoDB](DynamoDB.md)
 - [EC2](EC2.md)
+- [VPC](VPC.md)
 - [ELB](ELB.md)
 
 ## Topics
