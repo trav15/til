@@ -24,6 +24,10 @@ When you create a VPC endpoint, ***you can attach an endpoint policy that contro
 
 AWS Network Firewall is a *stateful, managed network firewall and intrusion detection and prevention service for your virtual private cloud (VPC)* that you create in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or AWS Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata, for stateful inspection. Network Firewall supports Suricata compatible rules. *AWS Network Firewall supports domain name stateful network traffic inspection*. You can create Allow lists and Deny lists with domain names that the stateful rules engine looks for in network traffic.
 
+## Bastion Host
+
+A bastion host is a special purpose computer on a network *specifically designed and configured to withstand attacks*. If you have a bastion host in AWS, **it is basically just an EC2 instance**. It should be in a **public subnet** with either a public or Elastic IP address with sufficient RDP or SSH access defined in the security group. Users log on to the bastion host via SSH or RDP and then use that session to manage other hosts in the private subnets.
+
 ## *Resources*
 
 - [Tutorials Dojo VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
