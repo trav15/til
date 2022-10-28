@@ -2,6 +2,7 @@
 
 ## Services
 
+- [RDS](RDS.md)
 - [DynamoDB](DynamoDB.md)
 - [EC2](EC2.md)
 - [VPC](VPC.md)
