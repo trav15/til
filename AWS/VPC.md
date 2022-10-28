@@ -19,3 +19,8 @@ To check that two EC2 instances can communicate inside a VPC, first, the Network
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. ***Instances in your VPC do not require public IP addresses to communicate with resources in the service***. Traffic between your VPC and the other service does not leave the Amazon network.
 
 When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html
+
+## *Resources*
+
+- [Tutorials Dojo VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
+- [AWS VPC Endpoints docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)
