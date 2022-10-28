@@ -17,3 +17,4 @@ When you create or update Lambda functions that use environment variables, *AWS 
 ## *Resources*
 
 - [Tutorials Dojo Lambda Cheat Sheet](https://tutorialsdojo.com/aws-lambda/)
+- [AWS Lambda Env Variables docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#env_encrypt)
