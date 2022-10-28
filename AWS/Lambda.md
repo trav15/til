@@ -11,3 +11,7 @@ _**Execution roles** grant Lambda functions access to other AWS services_. You c
 AWS Lambda *supports the synchronous and asynchronous invocation of a Lambda function*. You can control the invocation type only when you invoke a Lambda function. When you use an AWS service as a trigger, the invocation type is predetermined for each service. You have no control over the invocation type that these event sources use when they invoke your Lambda function. Since processing only takes 5 minutes, Lambda is also a cost-effective choice.
 
 *Lambda can scale faster than the regular Auto Scaling feature of Amazon EC2, Amazon Elastic Beanstalk, or Amazon ECS*. This is because AWS Lambda is more lightweight than other computing services. Under the hood, Lambda can run your code to thousands of available AWS-managed EC2 instances (that could already be running) within seconds to accommodate traffic. This is faster than the Auto Scaling process of launching new EC2 instances that could take a few minutes or so. An alternative is to overprovision your compute capacity but that will incur significant costs. 
+
+## *Resources*
+
+- [Tutorials Dojo Lambda Cheat Sheet](https://tutorialsdojo.com/aws-lambda/)
