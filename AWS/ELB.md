@@ -20,3 +20,7 @@ At least 2 subnets must be specified when creating this type of load balancer. *
 *You can’t assign an Elastic IP address to an Application Load Balancer*. The alternative method you can do is assign an Elastic IP address to a Network Load Balancer in front of the ALB.
 
 ***ALBs can also route and load balance gRPC traffic between microservices or between gRPC-enabled clients and services***. This will allow customers to seamlessly introduce gRPC traffic management in their architectures without changing any of the underlying infrastructure on their clients or services.
+
+## *Resources*
+
+- [Tutorials Dojo ELB Cheat Sheet](https://tutorialsdojo.com/aws-elastic-load-balancing-elb/)
