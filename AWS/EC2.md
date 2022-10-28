@@ -15,6 +15,8 @@ In Auto Scaling, the following statements are correct regarding the cooldown per
 - Its default value is 300 seconds.
 - It is a configurable setting for your Auto Scaling group.
 
+**Scheduled scaling policy** - Scaling based on a schedule allows you to scale your application in response to predictable load changes. For example you can scale up on busy days of the week or times of day. To configure your Auto Scaling group to scale based on a schedule, you create a **scheduled action**. The scheduled action tells Amazon EC2 Auto Scaling to perform a scaling action at specified times. To create a scheduled scaling action, *you specify the start time when the scaling action should take effect, and the new minimum, maximum, and desired sizes for the scaling action*. At the specified time, Amazon EC2 Auto Scaling updates the group with the values for minimum, maximum, and desired size specified by the scaling action. *You can create scheduled actions for scaling one time only or for scaling on a recurring schedule*.
+
 ## EBS
 An Amazon EBS volume is a durable, block-level storage device that you can attach to a single EC2 instance. You can use **EBS volumes as primary storage** for data that requires frequent updates, such as the system drive for an instance or storage for a database application. You can also use them for throughput-intensive applications that perform continuous disk scans. ***EBS volumes persist independently from the running life of an EC2 instance***.
 
