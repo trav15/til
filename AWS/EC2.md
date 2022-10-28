@@ -36,3 +36,11 @@ AWS Compute Optimizer recommends optimal AWS resources for your workloads to red
 - Amazon EC2 Auto Scaling groups
 - Amazon Elastic Block Store (Amazon EBS) volumes
 - AWS Lambda functions
+
+## *Resources*
+
+- [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-compute-cloud-amazon-ec2/)
+- [Auto Scaling Cheat Sheet](https://tutorialsdojo.com/aws-auto-scaling/)
+- [EBS Cheat Sheet](https://tutorialsdojo.com/aws-cheat-sheet-amazon-ebs/)
+- [AWS DLM docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+- [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)
