@@ -1,5 +1,13 @@
 # EC2 - Elastic Cloud Compute
 
+## Reserved Instances
+
+Reserved Instances (RIs) provide you with a **significant discount (up to 75%)** compared to On-Demand instance pricing. You have the flexibility to change families, OS types, and tenancies while benefiting from RI pricing when you use Convertible RIs. One important thing to remember here is that ***Reserved Instances are not physical instances, but rather a billing discount applied to the use of On-Demand Instances*** in your account.
+
+The offering class of a Reserved Instance is either **Standard** or **Convertible**. A Standard Reserved Instance provides a more significant discount than a Convertible Reserved Instance, but *you can’t exchange a Standard Reserved Instance* unlike Convertible Reserved Instances. You can modify Standard and Convertible Reserved Instances. Take note that in Convertible Reserved Instances, ***you are allowed to exchange another Convertible Reserved instance with a different instance type and tenancy***.
+
+The configuration of a Reserved Instance comprises a single instance type, platform, scope, and tenancy over a term. When your computing needs change, you can modify your Standard or Convertible Reserved Instances and continue to take advantage of the billing benefit. You can modify the Availability Zone, scope, network platform, or instance size (within the same instance type) of your Reserved Instance. ***You can also sell your unused instance for Standard RIs but not Convertible RIs on the Reserved Instance Marketplace***.
+
 ## Auto Scaling
 
 In Auto Scaling, the following statements are correct regarding the cooldown period:
@@ -40,6 +48,7 @@ AWS Compute Optimizer recommends optimal AWS resources for your workloads to red
 ## *Resources*
 
 - [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-compute-cloud-amazon-ec2/)
+- [AWS Reserved Instances types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/reserved-instances-types.html)
 - [Auto Scaling Cheat Sheet](https://tutorialsdojo.com/aws-auto-scaling/)
 - [EBS Cheat Sheet](https://tutorialsdojo.com/aws-cheat-sheet-amazon-ebs/)
 - [AWS DLM docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
