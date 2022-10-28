@@ -20,6 +20,10 @@ A VPC endpoint enables you to privately connect your VPC to supported AWS servic
 
 When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html
 
+## Network Firewall
+
+AWS Network Firewall is a *stateful, managed network firewall and intrusion detection and prevention service for your virtual private cloud (VPC)* that you create in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or AWS Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata, for stateful inspection. Network Firewall supports Suricata compatible rules. *AWS Network Firewall supports domain name stateful network traffic inspection*. You can create Allow lists and Deny lists with domain names that the stateful rules engine looks for in network traffic.
+
 ## *Resources*
 
 - [Tutorials Dojo VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
