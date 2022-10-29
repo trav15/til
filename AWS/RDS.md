@@ -26,3 +26,4 @@ In Amazon RDS, *failover is automatically handled* so that you can resume databa
 ## *Resources*
 
 - [Tutorials Dojo RDS Cheat Sheet](https://tutorialsdojo.com/amazon-relational-database-service-amazon-rds/)
+- [AWS RDS Multi-AZ docs](https://aws.amazon.com/rds/features/multi-az/)
