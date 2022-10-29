@@ -2,6 +2,16 @@
 
 Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models. Its flexible data model, reliable performance, and automatic scaling of throughput capacity makes it a great fit for mobile, web, gaming, ad tech, IoT, and many other applications.
 
+The **partition key** portion of a table’s primary key determines the logical partitions in which a table’s data is stored. This in turn affects the underlying physical partitions. Provisioned I/O capacity for the table is divided evenly among these physical partitions. Therefore a partition key design that doesn’t distribute I/O requests evenly can create *“hot” partitions that result in throttling and use your provisioned I/O capacity inefficiently*.
+
+***The optimal usage of a table’s provisioned throughput depends not only on the workload patterns of individual items, but also on the partition-key design***. This doesn’t mean that you must access all partition key values to achieve an efficient throughput level, or even that the percentage of accessed partition key values must be high. It does mean that the more distinct partition key values that your workload accesses, the more those requests will be spread across the partitioned space. ***In general, you will use your provisioned throughput more efficiently as the ratio of partition key values accessed to the total number of partition key values increases***. One example for this is the use of partition keys with **high-cardinality attributes, which have a large number of distinct values for each item**.
+https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/
+
+For DynamoDB, it scales well due to these reasons:
+- Its schema flexibility lets DynamoDB store complex hierarchical data within a single item. DynamoDB is not a totally schemaless database since the very definition of a schema is just the model or structure of your data.
+- Composite key design lets it store related items close together on the same table.
+
+
 *Since DynamoDB tables are public resources, applications within a VPC rely on an Internet Gateway to route traffic to/from Amazon DynamoDB*. You can use a **Dynamo DB Gateway endpoint** if you want to keep the traffic between your VPC and Amazon DynamoDB within the Amazon network. ***This way, resources residing in your VPC can use their private IP addresses to access DynamoDB with no exposure to the public internet***.
 
 When you create a DynamoDB Gateway endpoint, _**you specify the VPC** where it will be deployed **as well as the route table** that will be associated with the endpoint_. The route table will be updated with an Amazon DynamoDB prefix list (list of CIDR blocks) as the destination and the endpoint’s ID as the target.
