@@ -1,7 +1,8 @@
 
 # Markdown
 
-Layout tips:
+## Layout tips
+
 - Use blank lines between before and after headings:
 ```
 Try to put a blank line before...
@@ -34,6 +35,15 @@ function Welcome(props) {
 ```
 ````
 - Use quadruple backticks (\`\`\`\`) when you want the triple backticks (\`\`\`) to display in the code block. For example to display the above example.
+
+## Links/anchors
+
+- For links to a heading section within the same file use:
+  - `[Example Title](#example-title)` 
+  - The amount of `#` stays at one regardless of heading level (`#`, `##`, `###`). 
+  - The heading should be downcased, spaces changed to hyphens, and removed anything not a letter, hyphen, or space. If this id is not unique, you add "-1", "-2", and so forth to the header.
+- For links to a heading section in a different file add `#heading` after the file name:
+  - `[Different File Title](differentfile.md/#different-file-title)`
 
 ## *Resources*
 
