@@ -1,5 +1,20 @@
 # EC2 - Elastic Cloud Compute
 
+## Instance Types
+| Instance Family | Type | Use |
+| --- | --- | --- |
+| General Purpose | T – cheap general purpose | Burstable performance instances|
+| | M – Main choice general purpose apps | Fixed performance |
+| Compute Optimized | C – Compute | Cost-effective high performance at a low price per compute ratio |
+| Memory Optimized | R – RAM | Memory-intensive applications |
+| | X – eXtreme memoryZ | Large-scale, enterprise-class, in-memory applications, and high-performance DBs |
+| | Z-factor | Extreme memory and CPU |
+| Accelerated Computing | P – Picture (graphics)| General purpose GPU instances |
+| | G – Graphics | Graphics-intensive GPU instances |
+| | F – FPGA | Reconfigurable FPGA instances |
+| Storage Optimized | I – IOPSD – Density | High storage instances, low latency, high random I/O performance, high sequential read throughput, and high IOPS |
+| | H – High disk throughput | HDD-based local storage for high disk throughput |
+
 ## Reserved Instances
 
 Reserved Instances (RIs) provide you with a **significant discount (up to 75%)** compared to On-Demand instance pricing. You have the flexibility to change families, OS types, and tenancies while benefiting from RI pricing when you use Convertible RIs. One important thing to remember here is that ***Reserved Instances are not physical instances, but rather a billing discount applied to the use of On-Demand Instances*** in your account.
