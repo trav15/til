@@ -75,7 +75,7 @@ The steps in general are:
 
 After you create an IAM user log out of the root user and log in via the sign-in link or with the 12 digit account ID. Sign in link will be in this format: `https://012345678912.signin.aws.amazon.com/console`. Follow instructions provided by AWS: [Creating first IAM admin user/group AWS docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
 
-## Roles
+## More On Roles
 
 Always remember that you should associate IAM roles to EC2 instances and not an IAM user, for the purpose of accessing other AWS services. IAM roles are designed so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use. Instead of creating and distributing your AWS credentials, you can delegate permission to make API requests using IAM roles.
 
@@ -87,6 +87,12 @@ The best practice in handling API Credentials is to create a new role in the Ide
 5. Have the application retrieve a set of temporary credentials and use them.
 
 Source: [IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+
+## AWS Security Token Service (STS)
+
+AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with *temporary security credentials* that can control access to your AWS resources. ***Temporary security credentials work almost identically to the long-term access key credentials that your IAM users can use***.
+
+Temporary security credentials are short-term and are not stored with the user but are generated dynamically and provided to the user when requested. By default, AWS STS is a global service with a single endpoint at https://sts.amazonaws.com.
 
 
 
