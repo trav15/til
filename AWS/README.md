@@ -2,6 +2,7 @@
 
 ## Services
 
+- [IAM](IAM.md)
 - [RDS](RDS.md)
 - [DynamoDB](DynamoDB.md)
 - [EC2](EC2.md)
