@@ -48,6 +48,13 @@ Here is a list of important information about EBS Volumes:
 - Amazon EBS encryption uses 256-bit Advanced Encryption Standard algorithms (AES-256)
 - EBS Volumes offer 99.999% SLA.
 
+### EBS Volume Types
+
+- **General Purpose (SSD)** is the new, SSD-backed, general purpose EBS volume type that is recommended as the default choice for customers. General Purpose (SSD) volumes are suitable for a broad range of workloads, including small to medium-sized databases, development and test environments, and boot volumes.
+- **Provisioned IOPS (SSD)** volumes offer storage with consistent and low-latency performance and are designed for I/O intensive applications such as large relational or NoSQL databases. Magnetic volumes provide the lowest cost per gigabyte of all EBS volume types.
+- **Magnetic** volumes are ideal for workloads where data are accessed infrequently, and applications where the lowest storage cost is important. Take note that this is a Previous Generation Volume. The latest low-cost magnetic storage types are Cold HDD (sc1) and Throughput Optimized HDD (st1) volumes.
+
+
 ### Amazon Data Lifecycle Manager (Amazon DLM)
 
 You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation, retention, and deletion of snapshots taken to back up your Amazon EBS volumes. Automating snapshot management helps you to:
@@ -74,3 +81,4 @@ AWS Compute Optimizer recommends optimal AWS resources for your workloads to red
 - [EBS Cheat Sheet](https://tutorialsdojo.com/aws-cheat-sheet-amazon-ebs/)
 - [AWS DLM docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
 - [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)
+- [AWS EBS Volume Types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
