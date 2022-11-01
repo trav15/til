@@ -16,6 +16,51 @@ Evaluation logic rules for policies:
 - A permissions boundary overrides the allow. If there is a permissions boundary that applies, that boundary must allow the request. Otherwise, it is implicitly denied.
 An explicit deny in any policy overrides any allows.
 
+## Users
+
+### IAM Users
+
+Instead of sharing your root user credentials with others, you can create individual **IAM users** within your account that correspond to users in your organization. IAM users are not separate accounts; they are users within your account.
+
+Each user can have its own password for access to the AWS Management Console. You can also create an individual access key for each user so that the user can make programmatic requests to work with resources in your account. By default, a brand new IAM user has NO permissions to do anything. *Users are global entities*.
+
+### IAM Groups
+
+- An IAM group is a collection of IAM users.
+- You can organize IAM users into IAM groups and attach access control policies to a group.
+- A user can belong to multiple groups.
+- Groups cannot belong to other groups.
+- Groups do not have security credentials, and cannot access web services directly.
+
+### IAM Roles
+
+A role does not have any credentials associated with it. An IAM user can assume a role to temporarily take on different permissions for a specific task. A role can be assigned to a federated user who signs in by using an external identity provider instead of IAM.
+
+**AWS service role** is a role that a service assumes to perform actions in your account on your behalf. This service role must include all the permissions required for the service to access the AWS resources that it needs.
+- **AWS service role for an EC2 instance** is a special type of service role that a service assumes to launch an EC2 instance that runs your application. This role is assigned to the EC2 instance when it is launched.
+- **AWS service-linked role** is a unique type of service role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf.
+
+## Policies
+
+- Most permission policies are JSON policy documents.
+- The IAM console includes **policy summary tables** that describe the access level, resources, and conditions that are allowed or denied for each service in a policy.
+    - The **policy summary** table includes a list of services. Choose a service there to see the **service summary**.
+    - This **summary table** includes a list of the actions and associated permissions for the chosen service. You can choose an action from that table to view the action **summary**.
+
+To assign permissions to federated users, you can create an entity referred to as a **role** and define permissions for the role.
+
+### Identity-Based Policies
+
+- **Permissions policies** that you attach to a principal or identity.
+- **Managed policies** are standalone policies that you can attach to multiple users, groups, and roles in your AWS account.
+- **Inline policies** are policies that you create and manage and that are embedded directly into a single user, group, or role.
+
+### Resource-based Policies
+
+- **Permissions policies** that you attach to a resource such as an Amazon S3 bucket.
+- **Resource-based policies** are only inline policies.
+- **Trust policies** are resource-based policies that are attached to a role and define which principals can assume the role.
+
 ## Initial set up of IAM user and groups
 
 When you first create an AWS account you create an account as a **root user**. But as a best practice *do not use the AWS account root user for any task where it's not required*. Instead, create a new IAM user for each person that requires administrator access. Then make those users administrators by placing the users into an "Administrators" user group to which you attach the `AdministratorAccess` managed policy.
