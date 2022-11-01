@@ -1,5 +1,21 @@
 # IAM Identity Access Management
 
+## Authorization
+
+AWS uses values from the request context to check for policies that apply to the request. It then uses the policies to determine whether to allow or deny the request.
+
+Policies types can be categorized as permissions policies or permissions boundaries.
+- **Permissions policies** define the permissions for the object to which they’re attached. These include identity-based policies, resource-based policies, and ACLs.
+- **Permissions boundary** is an advanced feature that allows you to use policies to limit the maximum permissions that a principal can have.
+
+To provide your users with permissions to access the AWS resources in their own account, you need **identity-based policies**. In contrast, **Resource-based policies** are for granting cross-account access.
+
+Evaluation logic rules for policies:
+- *By default, all requests are denied*.
+- An explicit allow in a permissions policy overrides this default.
+- A permissions boundary overrides the allow. If there is a permissions boundary that applies, that boundary must allow the request. Otherwise, it is implicitly denied.
+An explicit deny in any policy overrides any allows.
+
 ## Initial set up of IAM user and groups
 
 When you first create an AWS account you create an account as a **root user**. But as a best practice *do not use the AWS account root user for any task where it's not required*. Instead, create a new IAM user for each person that requires administrator access. Then make those users administrators by placing the users into an "Administrators" user group to which you attach the `AdministratorAccess` managed policy.
