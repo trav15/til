@@ -11,6 +11,7 @@
 - [Lambda](Lambda.md)
 - [S3](S3.md)
 - [CloudFront](CloudFront.md)
+- [CloudTrail](CloudTrail.md)
 
 ## Topics
 
