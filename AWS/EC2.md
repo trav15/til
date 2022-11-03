@@ -34,7 +34,33 @@ In Auto Scaling, the following statements are correct regarding the cooldown per
 - Its default value is 300 seconds.
 - It is a configurable setting for your Auto Scaling group.
 
-**Scheduled scaling policy** - Scaling based on a schedule allows you to scale your application in response to predictable load changes. For example you can scale up on busy days of the week or times of day. To configure your Auto Scaling group to scale based on a schedule, you create a **scheduled action**. The scheduled action tells Amazon EC2 Auto Scaling to perform a scaling action at specified times. To create a scheduled scaling action, *you specify the start time when the scaling action should take effect, and the new minimum, maximum, and desired sizes for the scaling action*. At the specified time, Amazon EC2 Auto Scaling updates the group with the values for minimum, maximum, and desired size specified by the scaling action. *You can create scheduled actions for scaling one time only or for scaling on a recurring schedule*.
+### Scheduled scaling policy
+
+Scaling based on a schedule allows you to scale your application in response to predictable load changes. For example you can scale up on busy days of the week or times of day. To configure your Auto Scaling group to scale based on a schedule, you create a **scheduled action**. The scheduled action tells Amazon EC2 Auto Scaling to perform a scaling action at specified times. To create a scheduled scaling action, *you specify the start time when the scaling action should take effect, and the new minimum, maximum, and desired sizes for the scaling action*. At the specified time, Amazon EC2 Auto Scaling updates the group with the values for minimum, maximum, and desired size specified by the scaling action. *You can create scheduled actions for scaling one time only or for scaling on a recurring schedule*.
+
+### Launch configuration
+
+You can only specify *one launch configuration* for an Auto Scaling group at a time, and you ***can’t modify a launch configuration after you’ve created it***. Therefore, if you want to change the launch configuration for an Auto Scaling group, you must create a launch configuration and then update your Auto Scaling group with the new launch configuration.
+
+### Termination Policies
+
+- [Default](#default-termination-policy)
+- AllocationStrategy
+- OldestLaunchTemplate
+- OldestLaunchConfiguratoin
+- ClosestToNextInstanceHour
+- NewestInstance
+- OldestInstance
+
+#### Default Termination Policy
+
+The default termination policy is designed to help ensure that your network architecture spans Availability Zones evenly. With the default termination policy, the behavior of the Auto Scaling group is as follows:
+- If there are instances in multiple Availability Zones, choose the Availability Zone with the most instances and at least one instance that is not protected from scale in. If there is more than one Availability Zone with this number of instances, choose the Availability Zone with the instances that use the oldest launch configuration.
+- Determine which unprotected instances in the selected Availability Zone use the oldest launch configuration. If there is one such instance, terminate it.
+- If there are multiple instances to terminate based on the above criteria, determine which unprotected instances are closest to the next billing hour. (This helps you maximize the use of your EC2 instances and manage your Amazon EC2 usage costs.) If there is one such instance, terminate it.
+- If there is more than one unprotected instance closest to the next billing hour, choose one of these instances at random.
+
+
 
 ## EBS
 An Amazon EBS volume is a durable, block-level storage device that you can attach to a single EC2 instance. You can use **EBS volumes as primary storage** for data that requires frequent updates, such as the system drive for an instance or storage for a database application. You can also use them for throughput-intensive applications that perform continuous disk scans. ***EBS volumes persist independently from the running life of an EC2 instance***.
