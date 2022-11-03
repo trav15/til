@@ -41,7 +41,7 @@ A role does not have any credentials associated with it. An IAM user can assume 
 - **AWS service-linked role** is a unique type of service role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf.
 
 ## Policies
-
+An AWS IAM policy defines the permissions of an identity (users, groups, and roles) or resource within the AWS account.
 - Most permission policies are JSON policy documents.
 - The IAM console includes **policy summary tables** that describe the access level, resources, and conditions that are allowed or denied for each service in a policy.
     - The **policy summary** table includes a list of services. Choose a service there to see the **service summary**.
