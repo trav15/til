@@ -79,6 +79,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 Use a `.env.local` file in the root directory of the project to use environment variables in development. A variable can be accessed as `process.env.VARIABLE_NAME`.
 
+# Other Next.js lessons
+
+- [More Password Protect](next-password-protect.md)
+
 ## *Resources*
 
 - [Next.js Docs](https://nextjs.org/docs/getting-started)
