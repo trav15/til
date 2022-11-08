@@ -60,8 +60,6 @@ The default termination policy is designed to help ensure that your network arch
 - If there are multiple instances to terminate based on the above criteria, determine which unprotected instances are closest to the next billing hour. (This helps you maximize the use of your EC2 instances and manage your Amazon EC2 usage costs.) If there is one such instance, terminate it.
 - If there is more than one unprotected instance closest to the next billing hour, choose one of these instances at random.
 
-
-
 ## EBS
 An Amazon EBS volume is a durable, block-level storage device that you can attach to a single EC2 instance. You can use **EBS volumes as primary storage** for data that requires frequent updates, such as the system drive for an instance or storage for a database application. You can also use them for throughput-intensive applications that perform continuous disk scans. ***EBS volumes persist independently from the running life of an EC2 instance***.
 
@@ -80,7 +78,6 @@ Here is a list of important information about EBS Volumes:
 - **Provisioned IOPS (SSD)** volumes offer storage with consistent and low-latency performance and are designed for I/O intensive applications such as large relational or NoSQL databases. Magnetic volumes provide the lowest cost per gigabyte of all EBS volume types.
 - **Magnetic** volumes are ideal for workloads where data are accessed infrequently, and applications where the lowest storage cost is important. Take note that this is a Previous Generation Volume. The latest low-cost magnetic storage types are Cold HDD (sc1) and Throughput Optimized HDD (st1) volumes.
 
-
 ### Amazon Data Lifecycle Manager (Amazon DLM)
 
 You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation, retention, and deletion of snapshots taken to back up your Amazon EBS volumes. Automating snapshot management helps you to:
@@ -90,6 +87,15 @@ You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation,
 
 Combined with the monitoring features of Amazon CloudWatch Events and AWS CloudTrail, Amazon DLM provides a complete backup solution for EBS volumes at no additional cost.
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
+
+## Amazon Machine Images (AMI)
+
+An Amazon Machine Image (AMI) is a supported and maintained image provided by AWS that provides the information required to launch an instance. You must specify an AMI when you launch an instance. You can launch multiple instances from a single AMI when you require multiple instances with the same configuration. You can use different AMIs to launch instances when you require instances with different configurations.
+
+### Recycle Bin
+
+Recycle Bin is a data recovery feature that enables you to restore accidentally deleted Amazon EBS snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify before being permanently deleted.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-amis.html
 
 ## AWS Compute Optimizer 
 
