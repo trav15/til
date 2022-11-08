@@ -38,6 +38,18 @@ If you have resources in multiple Availability Zones and they share one NAT gate
 An **egress-only internet gateway** is a horizontally scaled, redundant, and highly available VPC component that *allows outbound communication over IPv6 from instances in your VPC to the internet* and prevents it from initiating an IPv6 connection with your instances. *IPv6 addresses are globally unique and are therefore public by default*. If you want your instance to be able to access the internet, but you want to prevent resources on the internet from initiating communication with your instance, you can use an egress-only internet gateway.
 https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html
 
+## Invalid Peering Configurations
+
+Note that a VPC peering connection does not support edge to edge routing. This means that if either VPC in a peering relationship has one of the following connections, you cannot extend the peering relationship to that connection:
+- A VPN connection or an AWS Direct Connect connection to a corporate network
+- An Internet connection through an Internet gateway
+- An Internet connection in a private subnet through a NAT device
+- A gateway VPC endpoint to an AWS service; for example, an endpoint to Amazon S3.
+- (IPv6) A ClassicLink connection. You can enable IPv4 communication between a linked EC2-Classic instance and instances in a VPC on the other side of a VPC peering connection. However, IPv6 is not supported in EC2-Classic, so you cannot extend this connection for IPv6 communication.
+
+For example, if VPC A and VPC B are peered, and VPC A has any of these connections, then instances in VPC B cannot use the connection to access resources on the other side of the connection. Similarly, resources on the other side of a connection cannot use the connection to access VPC B.
+
+
 ## Network Firewall
 
 AWS Network Firewall is a *stateful, managed network firewall and intrusion detection and prevention service for your virtual private cloud (VPC)* that you create in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or AWS Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata, for stateful inspection. Network Firewall supports Suricata compatible rules. *AWS Network Firewall supports domain name stateful network traffic inspection*. You can create Allow lists and Deny lists with domain names that the stateful rules engine looks for in network traffic.
