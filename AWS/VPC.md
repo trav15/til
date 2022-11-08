@@ -1,6 +1,6 @@
 # VPC (Virtual Private Cloud)
 
-Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications.
+Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications. *A VPC can span multiple AZs.
 
 A **subnet** is a range of IP addresses in your VPC. You can launch AWS resources into a specified subnet. When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a CIDR block. ***Each subnet must reside entirely within one Availability Zone and cannot span zones***. You can also *optionally assign an IPv6 CIDR block to your VPC*, and assign IPv6 CIDR blocks to your subnets. Again, *IPv4 CIDRs are required*.
 
@@ -20,6 +20,24 @@ A VPC endpoint enables you to privately connect your VPC to supported AWS servic
 
 When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html
 
+## NAT Gateway
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
+A NAT Gateway is a highly available, managed **Network Address Translation (NAT)** service for your resources in a *private subnet to access the Internet*. NAT gateway is created in a specific Availability Zone and implemented with redundancy in that zone.
+
+***You must create a NAT gateway on a public subnet to enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.***
+
+When you create a NAT gateway, you specify one of the following connectivity types:
+- **Public** – (Default) *Instances in private subnets can connect to the internet through a public NAT gateway, but cannot receive unsolicited inbound connections from the internet*. You create a public NAT gateway in a public subnet and must associate an elastic IP address with the NAT gateway at creation. You route traffic from the NAT gateway to the internet gateway for the VPC. *Alternatively, you can use a public NAT gateway to connect to other VPCs or your on-premises network. In this case, you route traffic from the NAT gateway through a transit gateway or a virtual private gateway*.
+- **Private** – *Instances in private subnets can connect to other VPCs or your on-premises network through a private NAT gateway*. You can route traffic from the NAT gateway through a transit gateway or a virtual private gateway. *You cannot associate an elastic IP address with a private NAT gateway*. You can attach an internet gateway to a VPC with a private NAT gateway, but if you route traffic from the private NAT gateway to the internet gateway, the internet gateway drops the traffic.
+
+The NAT gateway replaces the source IP address of the instances with the IP address of the NAT gateway. For a public NAT gateway, this is the elastic IP address of the NAT gateway. For a private NAT gateway, this is the private IP address of the NAT gateway. When sending response traffic to the instances, the NAT device translates the addresses back to the original source IP address.
+
+If you have resources in multiple Availability Zones and they share one NAT gateway, and if the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose Internet access. ***To create an Availability Zone-independent architecture, create a NAT gateway in each Availability Zone and configure your routing to ensure that resources use the NAT gateway in the same Availability Zone.***
+
+An **egress-only internet gateway** is a horizontally scaled, redundant, and highly available VPC component that *allows outbound communication over IPv6 from instances in your VPC to the internet* and prevents it from initiating an IPv6 connection with your instances. *IPv6 addresses are globally unique and are therefore public by default*. If you want your instance to be able to access the internet, but you want to prevent resources on the internet from initiating communication with your instance, you can use an egress-only internet gateway.
+https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html
+
 ## Network Firewall
 
 AWS Network Firewall is a *stateful, managed network firewall and intrusion detection and prevention service for your virtual private cloud (VPC)* that you create in Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the perimeter of your VPC. This includes filtering traffic going to and coming from an internet gateway, NAT gateway, or over VPN or AWS Direct Connect. Network Firewall uses the open source intrusion prevention system (IPS), Suricata, for stateful inspection. Network Firewall supports Suricata compatible rules. *AWS Network Firewall supports domain name stateful network traffic inspection*. You can create Allow lists and Deny lists with domain names that the stateful rules engine looks for in network traffic.
@@ -32,3 +50,5 @@ A bastion host is a special purpose computer on a network *specifically designed
 
 - [Tutorials Dojo VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
 - [AWS VPC Endpoints docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)
+- [AWS NAT Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)
+- [AWS Egress-only Internet Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html)
