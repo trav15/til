@@ -45,7 +45,7 @@ function Welcome(props) {
 - For links to a heading section in a different file add `#heading` after the file name:
   - `[Different File Title](differentfile.md/#different-file-title)`
 
-## Footnotes [^3]
+## Footnotes
 
 For footnotes in GitHub use bracket syntax:
 ```
@@ -74,5 +74,4 @@ Using words instead of numbers for reference[^words].
 - [Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
 - [Markdown Guide - Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 - [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)
-
-[^3]: [GitHub docs footnotes in Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)
+- [GitHub docs footnotes in Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)
