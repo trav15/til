@@ -31,5 +31,5 @@ Aurora Global Database supports storage-based replication that has a latency of 
 ## *Resources*
 
 - [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-aurora/)
-- [^1]: [AWS Aurora Serverless docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
-- [^2]: [AWS Global Database docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html)
+[^1]: [AWS Aurora Serverless docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html)
+[^2]: [AWS Global Database docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html)
