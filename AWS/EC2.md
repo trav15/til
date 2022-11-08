@@ -72,7 +72,7 @@ Here is a list of important information about EBS Volumes:
 - Amazon EBS encryption uses 256-bit Advanced Encryption Standard algorithms (AES-256)
 - EBS Volumes offer 99.999% SLA.
 
-### EBS Volume Types
+### EBS Volume Types [^EBSVT]
 
 - **General Purpose (SSD)** is the new, SSD-backed, general purpose EBS volume type that is recommended as the default choice for customers. General Purpose (SSD) volumes are suitable for a broad range of workloads, including small to medium-sized databases, development and test environments, and boot volumes.
 - **Provisioned IOPS (SSD)** volumes offer storage with consistent and low-latency performance and are designed for I/O intensive applications such as large relational or NoSQL databases. Magnetic volumes provide the lowest cost per gigabyte of all EBS volume types.
@@ -85,8 +85,7 @@ You can use Amazon Data Lifecycle Manager (Amazon DLM) to automate the creation,
 - Retain backups as required by auditors or internal compliance.
 - Reduce storage costs by deleting outdated backups.
 
-Combined with the monitoring features of Amazon CloudWatch Events and AWS CloudTrail, Amazon DLM provides a complete backup solution for EBS volumes at no additional cost.
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html
+Combined with the monitoring features of Amazon CloudWatch Events and AWS CloudTrail, Amazon DLM provides a complete backup solution for EBS volumes at no additional cost. [^DLM]
 
 ## Amazon Machine Images (AMI)
 
@@ -94,10 +93,9 @@ An Amazon Machine Image (AMI) is a supported and maintained image provided by AW
 
 ### Recycle Bin
 
-Recycle Bin is a data recovery feature that enables you to restore accidentally deleted Amazon EBS snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify before being permanently deleted.
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-amis.html
+Recycle Bin is a data recovery feature that enables you to restore accidentally deleted Amazon EBS snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are deleted, they are retained in the Recycle Bin for a time period that you specify before being permanently deleted. [^RB]
 
-## AWS Compute Optimizer 
+## AWS Compute Optimizer [^CO]
 
 AWS Compute Optimizer recommends optimal AWS resources for your workloads to reduce costs and improve performance by using machine learning to analyze historical utilization metrics. ***AWS Compute Optimizer can give recommendations if specific instances are under-provisioned, optimal, or over-provisioned***. You must opt-in to have Compute Optimizer analyze your AWS resources. Compute Optimizer generates recommendations for the following resources:
 - Amazon Elastic Compute Cloud (Amazon EC2) instances
@@ -117,13 +115,14 @@ If one of your instances serving a particular function fails, its network interf
 
 Because the interface maintains its private IP addresses, Elastic IP addresses, and MAC address, network traffic begins flowing to the standby instance as soon as you attach the network interface to the replacement instance. Users experience a brief loss of connectivity between the time the instance fails and the time that the network interface is attached to the standby instance, but no changes to the route table or your DNS server are required.
 
-
 ## *Resources*
 
 - [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-compute-cloud-amazon-ec2/)
 - [AWS Reserved Instances types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/reserved-instances-types.html)
 - [Auto Scaling Cheat Sheet](https://tutorialsdojo.com/aws-auto-scaling/)
 - [EBS Cheat Sheet](https://tutorialsdojo.com/aws-cheat-sheet-amazon-ebs/)
-- [AWS DLM docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
-- [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)
-- [AWS EBS Volume Types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
+
+[^EBSVT]: [AWS EBS Volume Types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
+[^DLM]: [AWS DLM snapshot lifecycle docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
+[^RB]: [AWS Recycle Bin docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-amis.html)
+[^CM]: [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)

@@ -16,14 +16,12 @@ Take note that a _non-Serverless DB cluster for Aurora is called a **provisioned
 
 ## Aurora Serverless [^1]
 
-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html
 Amazon Aurora Serverless is an on-demand, auto-scaling configuration for Amazon Aurora. An Aurora Serverless DB cluster is a DB cluster that automatically starts up, shuts down, and scales up or down its compute capacity based on your application’s needs. Aurora Serverless provides a relatively simple, cost-effective option for *infrequent, intermittent, sporadic or unpredictable workloads*. It can provide this because it automatically starts up, scales compute capacity to match your application’s usage and shuts down when it’s not in use.
 
 With Aurora Serverless, *you can create a database endpoint without specifying the DB instance class size*. You set the minimum and maximum capacity. With Aurora Serverless, the database endpoint connects to a proxy fleet that routes the workload to a fleet of resources that are automatically scaled. Because of the proxy fleet, connections are continuous as Aurora Serverless scales the resources automatically based on the minimum and maximum capacity specifications. Database client applications don’t need to change to use the proxy fleet. Aurora Serverless manages the connections automatically. _Scaling is rapid because it uses a **pool of “warm” resources** that are always ready to service requests_. Storage and processing are separate, so you can scale down to zero processing and pay only for storage.
 
 ## Aurora Global Database [^2]
 
-https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html
 Amazon Aurora Global Database is designed for globally distributed applications, *allowing a single Amazon Aurora database to span multiple AWS regions*. It replicates your data with no impact on database performance, *enables fast local reads with low latency in each region, and provides disaster recovery from region-wide outages*.
 
 Aurora Global Database supports storage-based replication that has a latency of less than 1 second. ***If there is an unplanned outage, one of the secondary regions you assigned can be promoted to read and write capabilities in less than 1 minute***. This feature is called **Cross-Region Disaster Recovery**. An RPO of 1 second and an RTO of less than 1 minute provide you a strong foundation for a global business continuity plan.

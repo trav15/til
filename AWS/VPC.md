@@ -18,11 +18,10 @@ To check that two EC2 instances can communicate inside a VPC, first, the Network
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. ***Instances in your VPC do not require public IP addresses to communicate with resources in the service***. Traffic between your VPC and the other service does not leave the Amazon network.
 
-When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html
+When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. [^VPCE]
 
-## NAT Gateway
+## NAT Gateway [^NAT]
 
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 A NAT Gateway is a highly available, managed **Network Address Translation (NAT)** service for your resources in a *private subnet to access the Internet*. NAT gateway is created in a specific Availability Zone and implemented with redundancy in that zone.
 
 ***You must create a NAT gateway on a public subnet to enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.***
@@ -35,8 +34,7 @@ The NAT gateway replaces the source IP address of the instances with the IP addr
 
 If you have resources in multiple Availability Zones and they share one NAT gateway, and if the NAT gateway’s Availability Zone is down, resources in the other Availability Zones lose Internet access. ***To create an Availability Zone-independent architecture, create a NAT gateway in each Availability Zone and configure your routing to ensure that resources use the NAT gateway in the same Availability Zone.***
 
-An **egress-only internet gateway** is a horizontally scaled, redundant, and highly available VPC component that *allows outbound communication over IPv6 from instances in your VPC to the internet* and prevents it from initiating an IPv6 connection with your instances. *IPv6 addresses are globally unique and are therefore public by default*. If you want your instance to be able to access the internet, but you want to prevent resources on the internet from initiating communication with your instance, you can use an egress-only internet gateway.
-https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html
+An **egress-only internet gateway** is a horizontally scaled, redundant, and highly available VPC component that *allows outbound communication over IPv6 from instances in your VPC to the internet* and prevents it from initiating an IPv6 connection with your instances. *IPv6 addresses are globally unique and are therefore public by default*. If you want your instance to be able to access the internet, but you want to prevent resources on the internet from initiating communication with your instance, you can use an egress-only internet gateway. [^EO]
 
 ## Invalid Peering Configurations
 
@@ -60,6 +58,7 @@ A bastion host is a special purpose computer on a network *specifically designed
 ## *Resources*
 
 - [Tutorials Dojo VPC Cheat Sheet](https://tutorialsdojo.com/amazon-vpc/)
-- [AWS VPC Endpoints docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)
-- [AWS NAT Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)
-- [AWS Egress-only Internet Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html)
+
+[^VPCE]: [AWS VPC Endpoints docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html)
+[^NAT]: [AWS NAT Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html)
+[^EO]: [AWS Egress-only Internet Gateway docs](https://docs.aws.amazon.com/vpc/latest/userguide/egress-only-internet-gateway.html)
