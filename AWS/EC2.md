@@ -105,6 +105,19 @@ AWS Compute Optimizer recommends optimal AWS resources for your workloads to red
 - Amazon Elastic Block Store (Amazon EBS) volumes
 - AWS Lambda functions
 
+## Elastic Network Interfaces (ENI)
+
+- An elastic network interface is a logical networking component in a VPC that represents a virtual network card, which directs traffic to your instance
+- Every instance in a VPC has a default network interface, called the primary network interface (eth0). 
+- You cannot detach a primary network interface from an instance.
+- You can create and attach additional network interfaces. The maximum number of network interfaces that you can use varies by instance type.
+- You can attach a network interface to an instance in a different subnet as long as its within the same AZ
+
+If one of your instances serving a particular function fails, its network interface can be attached to a replacement or hot standby instance pre-configured for the same role in order to rapidly recover the service. For example, you can use a network interface as your primary or secondary network interface to a critical service such as a database instance or a NAT instance. If the instance fails, you (or more likely, the code running on your behalf) can attach the network interface to a hot standby instance. 
+
+Because the interface maintains its private IP addresses, Elastic IP addresses, and MAC address, network traffic begins flowing to the standby instance as soon as you attach the network interface to the replacement instance. Users experience a brief loss of connectivity between the time the instance fails and the time that the network interface is attached to the standby instance, but no changes to the route table or your DNS server are required.
+
+
 ## *Resources*
 
 - [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-compute-cloud-amazon-ec2/)
