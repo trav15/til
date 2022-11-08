@@ -4,6 +4,7 @@
 
 - [IAM](IAM.md)
 - [RDS](RDS.md)
+- [Aurora](Aurora.md)
 - [DynamoDB](DynamoDB.md)
 - [EC2](EC2.md)
 - [VPC](VPC.md)
