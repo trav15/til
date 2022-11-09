@@ -139,4 +139,4 @@ Because the interface maintains its private IP addresses, Elastic IP addresses, 
 [^EBSVT]: [AWS EBS Volume Types docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
 [^DLM]: [AWS DLM snapshot lifecycle docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html)
 [^RB]: [AWS Recycle Bin docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-amis.html)
-[^CM]: [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)
+[^CO]: [AWS Computer Optimizer docs](https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html)
