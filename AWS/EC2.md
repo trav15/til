@@ -1,6 +1,7 @@
 # EC2 - Elastic Cloud Compute
 
 ## Instance Types
+
 | Instance Family | Type | Use |
 | --- | --- | --- |
 | General Purpose | T – cheap general purpose | Burstable performance instances|
@@ -14,6 +15,18 @@
 | | F – FPGA | Reconfigurable FPGA instances |
 | Storage Optimized | I – IOPSD – Density | High storage instances, low latency, high random I/O performance, high sequential read throughput, and high IOPS |
 | | H – High disk throughput | HDD-based local storage for high disk throughput |
+
+## Hibernation
+
+Hibernation of the Amazon EC2 instance can be used in the case of *memory-intensive applications or if applications take a long time to bootstrap*. Hibernation pre-warms the instance, and after resuming it, it quickly brings all application processes to a running state. When an instance is hibernated, the Amazon EC2 instance *saves all the content of the instance memory RAM to Amazon EBS volumes*. Any root EBS volumes or attached EBS volumes are persisted during hibernation.
+
+Once an EC2 instance is started from the hibernation state, the following activities are performed:
+- The EBS root volume and attached EBS volumes are reattached.
+- The RAM contents are reloaded back to the instance memory from the EBS volumes.
+- Application processes running before hibernation are back to the original state.
+- The instance ID is not changed.
+
+The above activities ensure that the applications running on the Amazon EC2 instance are quickly back to the production level after the hibernation state of the instance. 
 
 ## Reserved Instances
 
@@ -61,6 +74,7 @@ The default termination policy is designed to help ensure that your network arch
 - If there is more than one unprotected instance closest to the next billing hour, choose one of these instances at random.
 
 ## EBS
+
 An Amazon EBS volume is a durable, block-level storage device that you can attach to a single EC2 instance. You can use **EBS volumes as primary storage** for data that requires frequent updates, such as the system drive for an instance or storage for a database application. You can also use them for throughput-intensive applications that perform continuous disk scans. ***EBS volumes persist independently from the running life of an EC2 instance***.
 
 Here is a list of important information about EBS Volumes:
