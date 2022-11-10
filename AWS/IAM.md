@@ -24,6 +24,8 @@ Instead of sharing your root user credentials with others, you can create indivi
 
 Each user can have its own password for access to the AWS Management Console. You can also create an individual access key for each user so that the user can make programmatic requests to work with resources in your account. By default, a brand new IAM user has NO permissions to do anything. *Users are global entities*.
 
+***A brand new IAM user created using the AWS CLI or AWS API has no credentials of any kind***. You must create the type of credentials for an IAM user based on the needs of your user.  You can use access keys to sign programmatic requests to the AWS CLI or AWS API (directly or using the AWS SDK). Users need their own access keys to make programmatic calls to AWS from the AWS Command Line Interface (AWS CLI), Tools for Windows PowerShell, the AWS SDKs, or direct HTTP calls using the APIs for individual AWS services. You can create, modify, view, or rotate access keys (access key IDs and secret access keys) for IAM users. When you create an access key, IAM returns the access key ID and secret access key. 
+
 ### IAM Groups
 
 - An IAM group is a collection of IAM users.
