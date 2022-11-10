@@ -6,7 +6,7 @@ Components such as EC2 instances, RDS database clusters, and Lambda functions th
 
 ## Security Groups
 
-A **security group** acts as a virtual firewall that controls the traffic for one or more instances. When you launch an instance, you associate one or more security groups with the instance. You add rules to each security group that allow traffic to or from its associated instances. You can modify the rules for a security group at any time; the new rules are automatically applied to all instances that are associated with the security group.
+A **security group**[^sg] acts as a virtual firewall that controls the traffic for one or more instances. When you launch an instance, you associate one or more security groups with the instance. You add rules to each security group that control traffic based on protocols and port numbers. There are separate sets of rules for inbound traffic and outbound traffic. You can modify the rules for a security group at any time; the new rules are automatically applied to all instances that are associated with the security group.
 
 A security group determines what traffic is permitted in/out of a resource on a virtual network. Therefore, think about what can be launched "into" a virtual network:
 
@@ -23,3 +23,5 @@ A security group determines what traffic is permitted in/out of a resource on a 
 - Lambda
 
 **Resources do not "belong" to a security group**. Rather, one or more Security Groups are associated to a resource. This is often a difficult concept to understand since Security Groups have similar abilities to firewalls, and firewalls generally "encase" a number of devices. Rather than "belonging to", or "being encased by", a security group, the virtual network simply uses the definitions contained within a security group to determine what traffic to permit in/out of the resource.
+
+[^sg]: [AWS Security Groups docs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#working-with-security-groups)
