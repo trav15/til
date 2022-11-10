@@ -38,9 +38,13 @@ Each user can have its own password for access to the AWS Management Console. Yo
 
 A role does not have any credentials associated with it. An IAM user can assume a role to temporarily take on different permissions for a specific task. A role can be assigned to a federated user who signs in by using an external identity provider instead of IAM.
 
+An instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts. [^ec2role]
+
 **AWS service role** is a role that a service assumes to perform actions in your account on your behalf. This service role must include all the permissions required for the service to access the AWS resources that it needs.
 - **AWS service role for an EC2 instance** is a special type of service role that a service assumes to launch an EC2 instance that runs your application. This role is assigned to the EC2 instance when it is launched.
 - **AWS service-linked role** is a unique type of service role that is linked directly to an AWS service. Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf.
+
+[^ec2role]: [AWS docs IAM roles for EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
 
 ## Policies
 An AWS IAM policy defines the permissions of an identity (users, groups, and roles) or resource within the AWS account.
@@ -96,6 +100,12 @@ AWS Security Token Service (AWS STS) is the service that you can use to create a
 
 Temporary security credentials are short-term and are not stored with the user but are generated dynamically and provided to the user when requested. By default, AWS STS is a global service with a single endpoint at https://sts.amazonaws.com.
 
+### Scenario: Temporary credentials
+
+Temporary credentials are useful in scenarios that involve identity federation, delegation, cross-account access, and IAM roles. For enterprise identity federation and single sign-on (SSO) capability the necessary steps are:
+- Setup a Federation proxy or an Identity provider
+- Setup an AWS Security Token Service to generate temporary tokens 
+- Configure an IAM role and an IAM Policy to access the bucket.
 
 
 ## *Resources*
