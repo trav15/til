@@ -23,7 +23,7 @@ A VPC endpoint enables you to privately connect your VPC to supported AWS servic
 When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. [^vpce]
 
 There are two types of VPC endpoints and you should create the type of VPC endpoint required by the supported service: 
-- **Interface endpoints** - Most AWS services use VPC Interface Endpoint, powered by PrivateLink 
+- **Interface endpoints** - Most AWS services use VPC Interface Endpoint, powered by [PrivateLink](#aws-privatelink) 
     - An interface endpoint is an ENI with a private IP address from the IP address range of your subnet
     - Unlike a Gateway endpoint, you still get billed for the time your interface endpoint is running and the GB data it has processed. 
 - **Gateway endpoints**[^ge] - S3 and DynamoDB
@@ -39,6 +39,12 @@ There are two types of VPC endpoints and you should create the type of VPC endpo
 | Billed | Not billed |
 
 [^ge]: [AWS docs Gateway Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html)
+
+### AWS PrivateLink
+
+AWS PrivateLink[^pl] is a highly available, scalable technology that enables you to privately connect your VPC to services as if they were in your VPC. You do not need to use an internet gateway, NAT device, public IP address, AWS Direct Connect connection, or AWS Site-to-Site VPN connection to allow communication with the service from your private subnets. Therefore, you control the specific API endpoints, sites, and services that are reachable from your VPC.
+
+[^pl]: [AWS docs PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html)
 
 ## NAT Gateway [^nat]
 
