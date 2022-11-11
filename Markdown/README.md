@@ -62,7 +62,9 @@ Renders as:
 
 Here is a simple footnote[^1].
 
-Using words instead of numbers for reference[^words].  
+Using words instead of numbers for reference[^words]. 
+
+Be sure to use lowercase for `[^words]`
 
 [^1]: My simple reference.
 [^words]: 
