@@ -30,6 +30,14 @@ There are two types of VPC endpoints and you should create the type of VPC endpo
     - A gateway endpoint is a gateway that is a target for a specified route in your route table, used for traffic destined to a supported AWS service.
     - Gateway endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an internet gateway or a NAT device for your VPC. Gateway endpoints do not enable AWS PrivateLink.
 
+| Interface endpoints for S3 | Gateway endpoints for S3 |
+| --- | --- |
+| In both cases your network traffic remains on the AWS network |
+| Use private IP from your VPC to access S3 | Use S3 public IP addresses |
+| Allow access from on premises | Does not allow access from on premises |
+| Allow access from a VPC in another AWS Region using VPC peering or AWS Transit Gatewat | Does not allow access from another AWS Region |
+| Billed | Not billed |
+
 [^ge]: [AWS docs Gateway Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html)
 
 ## NAT Gateway [^NAT]
