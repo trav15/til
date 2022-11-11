@@ -22,6 +22,16 @@ A VPC endpoint enables you to privately connect your VPC to supported AWS servic
 
 When you create a VPC endpoint, ***you can attach an endpoint policy that controls access to the service to which you are connecting***. You can modify the endpoint policy attached to your endpoint and add or remove the route tables used by the endpoint. An endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policies). It is a separate policy for controlling access from the endpoint to the specified service. [^VPCE]
 
+There are two types of VPC endpoints and you should create the type of VPC endpoint required by the supported service: 
+- **Interface endpoints** - Most AWS services use VPC Interface Endpoint, powered by PrivateLink 
+    - An interface endpoint is an ENI with a private IP address from the IP address range of your subnet
+    - Unlike a Gateway endpoint, you still get billed for the time your interface endpoint is running and the GB data it has processed. 
+- **Gateway endpoints**[^ge] - S3 and DynamoDB
+    - A gateway endpoint is a gateway that is a target for a specified route in your route table, used for traffic destined to a supported AWS service.
+    - Gateway endpoints provide reliable connectivity to Amazon S3 and DynamoDB without requiring an internet gateway or a NAT device for your VPC. Gateway endpoints do not enable AWS PrivateLink.
+
+[^ge]: [AWS docs Gateway Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-endpoints.html)
+
 ## NAT Gateway [^NAT]
 
 A NAT Gateway is a highly available, managed **Network Address Translation (NAT)** service for your resources in a *private subnet to access the Internet*. NAT gateway is created in a specific Availability Zone and implemented with redundancy in that zone.
