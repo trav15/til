@@ -13,6 +13,7 @@
 - [S3](S3.md)
 - [CloudFront](CloudFront.md)
 - [CloudTrail](CloudTrail.md)
+- [WAF and Shield](WAF-Shield.md)
 
 ## Topics
 
