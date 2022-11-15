@@ -11,3 +11,14 @@ Amazon ECS supports batch jobs. You can use Amazon ECS Run Task action to run on
 You can use Amazon EventBridge to run Amazon ECS tasks when certain AWS events occur. You can set up an EventBridge rule that runs an Amazon ECS task whenever a file is uploaded to a certain Amazon S3 bucket using the Amazon S3 PUT operation.
 
 Amazon ECS enables you to inject sensitive data into your containers by storing your sensitive data in either **AWS Secrets Manager secrets** or **AWS Systems Manager Parameter Store parameters** and then referencing them in your container definition. The parameter that you reference can be from a different Region than the container using it, but must be from within the same account. This feature is supported by tasks using both the EC2 and Fargate launch types.
+
+# EKS
+
+**Amazon Elastic Kubernetes Service (EKS)** provisions and scales the Kubernetes control plane, including the API servers and backend persistence layer, *across multiple AWS availability zones for high availability* and fault tolerance. Amazon EKS automatically detects and replaces unhealthy control plane nodes and provides patching for the control plane. Amazon EKS is integrated with many AWS services to provide scalability and security for your applications. These services include Elastic Load Balancing for load distribution, IAM for authentication, Amazon VPC for isolation, and AWS CloudTrail for logging .Kubernetes is considered cloud-agnostic because it allows you to move your containers to other cloud service providers.
+
+
+## *Resources*
+
+- [Tutorials Dojo ECS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-container-service-amazon-ecs/)
+
+- [Tutorials Dojo EKS Cheat Sheet](https://tutorialsdojo.com/amazon-elastic-kubernetes-service-eks/)
