@@ -1,5 +1,6 @@
 # VPC (Virtual Private Cloud)
 
+- [Subnets](#subnets)
 - [Intra/Inter communication](#intrainter-communication)
 - [VPC Endpoint](#vpc-endpoint)
     - [AWS PrivateLink](#aws-privatelink)
@@ -12,9 +13,32 @@ Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resourc
 
 When you create a VPC, it comes with a default [security group](Security.md#security-groups). You can create additional security groups for each VPC. You can associate a security group only with resources in the VPC for which it is created.
 
+## Subnets
+
 A **subnet** is a range of IP addresses in your VPC. You can launch AWS resources into a specified subnet. When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a CIDR block. ***Each subnet must reside entirely within one Availability Zone and cannot span zones***. You can also *optionally assign an IPv6 CIDR block to your VPC*, and assign IPv6 CIDR blocks to your subnets. Again, *IPv4 CIDRs are required*.
 
-If you have an existing VPC that supports IPv4 only and resources in your subnet that are configured to use IPv4 only, you can enable IPv6 support for your VPC and resources. Your VPC can operate in dual-stack mode — your resources can communicate over IPv4, or IPv6, or both. IPv4 and IPv6 communication are independent of each other. ***You cannot disable IPv4 support for your VPC and subnets since this is the default IP addressing system for Amazon VPC and Amazon EC2***.
+Important things to remember about a subnets:
+- Each subnet maps to a single Availability Zone.
+- Every subnet that you create is automatically associated with the main route table for the VPC.
+- If a subnet’s traffic is routed to an Internet gateway, the subnet is known as a public subnet.
+
+### Subnet types
+
+Depending on how you configure your VPC, subnets are considered public, private, or VPN-only:
+- Public subnet: The subnet traffic is routed to the public internet through an internet gateway or an egress-only internet gateway. 
+- Private subnet: The subnet traffic can't reach the public internet through an internet gateway or egress-only internet gateway. ***Access to the public internet requires a NAT device***.
+- VPN-only subnet: The subnet traffic is routed to a Site-to-Site VPN connection through a virtual private gateway. The subnet traffic can't reach the public internet through an internet gateway. 
+
+When you create a subnet, you specify its IP addresses, depending on the configuration of the VPC:
+- IPv4 only: The subnet has an IPv4 CIDR block but does not have an IPv6 CIDR block. Resources in an IPv4-only subnet must communicate over IPv4.
+- Dual stack: The subnet has both an IPv4 CIDR block and an IPv6 CIDR block. The VPC must have both an IPv4 CIDR block and an IPv6 CIDR block. Resources in a dual-stack subnet can communicate over IPv4 and IPv6.
+- IPv6 only: The subnet has an IPv6 CIDR block but does not have an IPv4 CIDR block. The VPC must have an IPv6 CIDR block. Resources in an IPv6-only subnet must communicate over IPv6.
+
+Regardless of the type of subnet, the internal IPv4 address range of the subnet is always private—AWS does not announce the address block to the internet. ***You cannot disable IPv4 support for your VPC and subnets since this is the default IP addressing system for Amazon VPC and Amazon EC2***.
+
+By design, _each subnet must be associated with a network ACL_, which controls inbound and outbound traffic. Every subnet that you create is automatically associated with the default network ACL for the VPC. You can change the association, and you can change the contents of the default network ACL. 
+
+https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html
 
 ## Intra/Inter communication
 
