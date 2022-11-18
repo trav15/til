@@ -10,6 +10,8 @@ Amazon API Gateway _provides throttling at multiple levels including global and 
 
 You can _add caching to API calls_ by provisioning an Amazon API Gateway cache and specifying its size in gigabytes. The cache is provisioned for a specific stage of your APIs. _This improves performance and reduces the traffic sent to your back end_. Cache settings allow you to control the way the cache key is built and the time-to-live (TTL) of the data stored for each method. Amazon API Gateway also exposes management APIs that help you invalidate the cache for each stage.
 
+You can enable [AWS WAF](WAF-Shield.md) for your APIs in Amazon API Gateway, making it easier to protect your APIs against common web exploits such as SQL injection and Cross-Site Scripting (XSS). To authorize and verify API requests to AWS services, API Gateway can help you leverage signature version 4. Using signature version 4 authentication, you can use [IAM](IAM.md) and access policies to authorize access to your APIs and all your other AWS resources.
+
 **Mapping Templates** can be used to transform a request from a frontend data format to the backend data format or transform a response from a backend to the format supported by the frontend. Mapping Templates are scripted in Velocity Template Language (VTL). In the case that a backend node is non-compatible with the older format, a mapping template can be used with API Gateway to transform the response while sending it to the non-compatible consumers. [^mm]
 
 [^mm]: [AWS docs Mapping Templates section](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings)
