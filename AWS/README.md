@@ -10,6 +10,7 @@
 - [ECS and EKS](ECS-EKS.md)
 - [VPC](VPC.md)
 - [ELB](ELB.md)
+- [API Gateway](APIGateway.md)
 - [Lambda](Lambda.md)
 - [S3](S3.md)
 - [CloudFront](CloudFront.md)
