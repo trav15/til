@@ -8,6 +8,10 @@ Amazon API Gateway _provides throttling at multiple levels including global and 
 
 You can _add caching to API calls_ by provisioning an Amazon API Gateway cache and specifying its size in gigabytes. The cache is provisioned for a specific stage of your APIs. _This improves performance and reduces the traffic sent to your back end_. Cache settings allow you to control the way the cache key is built and the time-to-live (TTL) of the data stored for each method. Amazon API Gateway also exposes management APIs that help you invalidate the cache for each stage.
 
+**Mapping Templates** can be used to transform a request from a frontend data format to the backend data format or transform a response from a backend to the format supported by the frontend. Mapping Templates are scripted in Velocity Template Language (VTL). In the case that a backend node is non-compatible with the older format, a mapping template can be used with API Gateway to transform the response while sending it to the non-compatible consumers. [^mm]
+
+[^mm]: [AWS docs Mapping Templates section](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings)
+
 ## *Resources*
 
 - [Tutorials Dojo API Gateway Cheat Sheet](https://tutorialsdojo.com/amazon-api-gateway/)
