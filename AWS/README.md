@@ -13,6 +13,7 @@
 - [API Gateway](APIGateway.md)
 - [Lambda](Lambda.md)
 - [S3](S3.md)
+- [EFS](EFS.md)
 - [CloudFront](CloudFront.md)
 - [CloudTrail](CloudTrail.md)
 - [WAF and Shield](WAF-Shield.md)
