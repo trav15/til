@@ -15,6 +15,7 @@
 - [S3](S3.md)
 - [EFS](EFS.md)
 - [CloudFront](CloudFront.md)
+- [CloudWatch](CloudWatch.md)
 - [CloudTrail](CloudTrail.md)
 - [WAF and Shield](WAF-Shield.md)
 
