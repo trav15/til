@@ -9,13 +9,13 @@
 - [Network Firewall](#network-firewall)
 - [Bastion Host](#bastion-host)
 
-Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications. *A VPC can span multiple AZs.
+Amazon Virtual Private Cloud (VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define. You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways. You can use both IPv4 and IPv6 for most resources in your virtual private cloud, helping to ensure secure and easy access to resources and applications. *A VPC can span multiple AZs*.
 
 When you create a VPC, it comes with a default [security group](Security.md#security-groups). You can create additional security groups for each VPC. You can associate a security group only with resources in the VPC for which it is created.
 
 ## Subnets
 
-A **subnet** is a range of IP addresses in your VPC. You can launch AWS resources into a specified subnet. When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a CIDR block. ***Each subnet must reside entirely within one Availability Zone and cannot span zones***. You can also *optionally assign an IPv6 CIDR block to your VPC*, and assign IPv6 CIDR blocks to your subnets. Again, *IPv4 CIDRs are required*.
+A **subnet** is a range of IP addresses in your VPC. You can launch AWS resources into a specified subnet. When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a CIDR block. ***Each subnet must reside entirely within one Availability Zone and cannot span zones***. You can also *optionally assign an IPv6 CIDR block to your VPC*, and assign IPv6 CIDR blocks to your subnets. Again, **IPv4 CIDRs are required**.
 
 Important things to remember about a subnets:
 - Each subnet maps to a single Availability Zone.
