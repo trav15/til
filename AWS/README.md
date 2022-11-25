@@ -17,6 +17,7 @@
 - [CloudFront](CloudFront.md)
 - [CloudWatch](CloudWatch.md)
 - [CloudTrail](CloudTrail.md)
+- [SQS and SNS](SQS-SNS.md)
 - [WAF and Shield](WAF-Shield.md)
 
 ## Topics
