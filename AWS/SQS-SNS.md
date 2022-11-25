@@ -10,6 +10,12 @@ See also [AWS docs SQS Basic Architecture](https://docs.aws.amazon.com/AWSSimple
 
 # Simple Notification Service (SNS)
 
+Amazon SNS is a fully managed pub/sub messaging service. With Amazon SNS, you can use **topics** to simultaneously distribute messages to multiple subscribing endpoints such as Amazon SQS queues, AWS Lambda functions, HTTP endpoints, email addresses, and mobile devices (SMS, Push).
+
+A **fanout scenario** occurs when a message published to an SNS topic is replicated and pushed to multiple endpoints, such as Amazon SQS queues, HTTP(S) endpoints, and Lambda functions. This allows for parallel asynchronous processing. 
+
+By default, an Amazon SNS topic subscriber receives every message published to the topic. You can use Amazon SNS message filtering to assign a filter policy to the topic subscription, and the subscriber will only receive a message that they are interested in. *Using Amazon SNS and Amazon SQS together, messages can be delivered to applications that require immediate notification of an event*. This method is known as fanout to Amazon SQS queues.
+
 ## *Resources
 
 - [Tutorials Dojo SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
