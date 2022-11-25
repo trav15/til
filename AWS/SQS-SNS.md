@@ -15,7 +15,16 @@ See also [AWS docs SQS Basic Architecture](https://docs.aws.amazon.com/AWSSimple
 
 # Simple Notification Service (SNS)
 
-Amazon SNS is a fully managed pub/sub messaging service. With Amazon SNS, you can use **topics** to simultaneously distribute messages to multiple subscribing endpoints such as Amazon SQS queues, AWS Lambda functions, HTTP endpoints, email addresses, and mobile devices (SMS, Push).
+Amazon SNS is a fully managed pub/sub messaging service. With Amazon SNS, you can use **topics** to simultaneously distribute messages to multiple subscribing endpoints such as:
+- Amazon SQS queues
+- AWS Lambda functions
+- HTTP/S endpoints
+- Email addresses
+- Mobile devices (SMS, Push).
+
+SNS follows the **“publish-subscribe” (pub-sub) messaging paradigm**, with notifications being delivered to clients using a “push” mechanism rather than to periodically check or “poll” for new information and updates.
+
+**Message filtering** allows a subscriber to create a filter policy, so that it only gets the notifications it is interested in.
 
 A **fanout scenario** occurs when a message published to an SNS topic is replicated and pushed to multiple endpoints, such as Amazon SQS queues, HTTP(S) endpoints, and Lambda functions. This allows for parallel asynchronous processing. 
 
@@ -36,5 +45,6 @@ Amazon SWF provides useful guarantees around task assignments. ***It ensures tha
 ## *Resources
 
 - [Tutorials Dojo SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
+- [Tutorials Dojo SNS Cheat Sheet](https://tutorialsdojo.com/amazon-sns/)
 - [Tutorials Dojo Amazon MQ Cheat Sheet](https://tutorialsdojo.com/amazon-mq/)
 - [Tutorials Dojo SWF Cheat Sheet](https://tutorialsdojo.com/amazon-simple-workflow-amazon-swf/)
