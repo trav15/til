@@ -1,6 +1,7 @@
 - [SQS](#simple-queue-service-sqs)
 - [SNS](#simple-notification-service-sns)
 - [Amazon MQ](#amazon-mq)
+- [SWF](#amazon-simple-workflow-swf)
 
 # Simple Queue Service (SQS)
 
@@ -28,7 +29,12 @@ A **cluster deployment** is a logical grouping of three RabbitMQ broker nodes be
 
 The default policy should not be deleted. If you do delete this policy, Amazon MQ will automatically recreate it. Amazon MQ will also ensure that HA properties are applied to all other policies that you create on a clustered broker. If you add a policy without the HA properties, Amazon MQ will add them for you. If you add a policy with different high-availability properties, Amazon MQ will replace them.
 
+# Amazon Simple Workflow (SWF)
+
+Amazon SWF provides useful guarantees around task assignments. ***It ensures that a task is never duplicated and is assigned only once***. Thus, even though you may have multiple workers for a particular activity type (or a number of instances of a decider), Amazon SWF will give a specific task to only one worker (or one decider instance). Additionally, Amazon SWF keeps at most one decision task outstanding at a time for workflow execution. Thus, you can run multiple decider instances without worrying about two instances operating on the same execution simultaneously. *These facilities enable you to coordinate your workflow without worrying about duplicate, lost, or conflicting tasks*.
+
 ## *Resources
 
 - [Tutorials Dojo SQS Cheat Sheet](https://tutorialsdojo.com/amazon-sqs/)
 - [Tutorials Dojo Amazon MQ Cheat Sheet](https://tutorialsdojo.com/amazon-mq/)
+- [Tutorials Dojo SWF Cheat Sheet](https://tutorialsdojo.com/amazon-simple-workflow-amazon-swf/)
