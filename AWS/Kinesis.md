@@ -21,6 +21,10 @@ Analyze streaming data, gain actionable insights, and respond to your business a
 - Kinesis Data Analytics elastically scales applications to keep up with any volume of data in the incoming data stream.
 - Kinesis Data Analytics delivers sub-second processing latencies so you can generate real-time alerts, dashboards, and actionable insights.
 
+## Kinesis Video Streams
+
+Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing. Kinesis Video Streams is serverless and automatically provisions and elastically scales all the infrastructure needed to ingest streaming video data from millions of devices. Kinesis Video Streams enforces Transport Layer Security (TLS)-based encryption on data streaming from devices, and encrypts all data at rest using AWS KMS.
+
 ## *Resources*
 
 - [Tutorials Dojo Kinesis Cheat Sheet](https://tutorialsdojo.com/amazon-kinesis/)
