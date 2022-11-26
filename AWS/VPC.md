@@ -77,6 +77,23 @@ Although the term VPN connection is a general term, *in the Amazon VPC documenta
 
 To check that two EC2 instances can communicate inside a VPC, first, the Network ACL should be properly set to allow communication between the two subnets. Second, the [security group](Security.md#security-groups) should also be properly configured so that your web server can communicate with the database server.
 
+## Security Group vs Network Access Control List
+
+| **Security Group** | **Network Access Control List** |
+| --- | --- |
+| Acts as a firewall for associated *EC2 instances* | Acts as a firewall for associated **subnets** |
+| Controls both inbound and outbound traffic at the instance level | Controls both inbound and outbound traffic at the subnet level |
+| You can secure your VPC instances using only SGs | Network ACLs are an additional layer of defense |
+| Supports allow rules only | Supports allow and deny rules |
+| **Stateful** (Return traffic is automatically allowed, regardless of any rules) | **Stateless** (Return traffic must be explicitly allowed by rules) |
+| Evaluates all rules before deciding whether to allow traffic | Evaluates rules in number order when deciding whether to allow traffic, starting with the lowest numbered rule. |
+| Applies only to the instance that is associated to it | Applies to all instances in the subnet it is associated with |
+| Has separate rules for inbound and outbound traffic | <--- SAME |
+| A newly created SG denies all inbound traffic by default | A newly created nACL denies all inbound traffic by default |
+| A newly created SG has an outbound rule that *__allows__ all outbound traffic by default* | A newly created nACL denies all outbound traffic by default |
+| Instances associated with a SG can't talk to each other unless you add rules allowing it | Each subnet in your VPC must be associated with a nACL. If none is associated, the default nACL is selected. |
+| SGs are associated with network interfaces | You can associate a nACL with multiple subnets; however, a subnet can be associated with only one nACL at a time. |
+
 ## VPC Endpoint
 
 A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. ***Instances in your VPC do not require public IP addresses to communicate with resources in the service***. Traffic between your VPC and the other service does not leave the Amazon network.
