@@ -19,6 +19,12 @@ For configuring active-passive failover with multiple primary and secondary reso
 - For Secondary resources, create health checks for the web servers in the data centers.
 - Create two failover alias records, one for primary and one for secondary resources.
 
+## Active-Active Failover
+
+For **active-active failover**, use this configuration when you want *all of your resources to be available the majority of the time*. When a resource becomes unavailable, Route 53 can detect that it’s unhealthy and stop including it when responding to queries.
+
+In active-active failover, *all the records that have the same name, the same type (such as A or AAAA), and the same routing policy (such as weighted or latency) are active* unless Route 53 considers them unhealthy. Route 53 can respond to a DNS query using any healthy record. With active-active failover you cannot set up one primary and one secondary resource as that configuration *uses all available resources all the time without a primary or secondary resource*.
+
 ## *Resources*
 
 - [Tutorials Dojo Route 53 Cheat Sheet](https://tutorialsdojo.com/amazon-route-53/)
