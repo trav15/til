@@ -8,7 +8,16 @@ To enable IPv6 resolution, you would need to create a second resource record, ex
 
 When responding to queries, *Route 53 includes only the healthy primary resources*. If all the primary resources are unhealthy, Route 53 begins to include only the healthy secondary resources in response to DNS queries. To create an active-passive failover configuration with one primary record and one secondary record, you just create the records and specify **Failover** for the routing policy. 
 
-When Route 53 checks the health of an endpoint, it sends an HTTP, HTTPS, or TCP request to the IP address and port that you specified when you created the health check. For a health check to succeed, your router and firewall rules must allow inbound traffic from the IP addresses that the Route 53 health checkers use.
+When Route 53 checks the health of an endpoint, it sends an HTTP, HTTPS, or TCP request to the IP address and port that you specified when you created the health check. ***For a health check to succeed, your router and firewall rules must allow inbound traffic from the IP addresses that the Route 53 health checkers use***.
+
+## Active-Passive Failover
+
+Amazon Route 53 health checks can be used to configure active-active and active-passive failover configurations. **Active-passive failover** configuration can be used when primary resources are available most of the time, and secondary resources are used only in case of primary resources are not available.
+
+For configuring active-passive failover with multiple primary and secondary resources, the following setting can be done:
+- For Primary resources, create an alias record pointing to Application Load Balancer with `evaluate health check` as yes.
+- For Secondary resources, create health checks for the web servers in the data centers.
+- Create two failover alias records, one for primary and one for secondary resources.
 
 ## *Resources*
 
