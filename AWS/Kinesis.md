@@ -13,6 +13,14 @@ The easiest way to load streaming data into data stores and analytics tools. Dat
 It can also batch, compress, and encrypt the data before loading it.
 It can capture, transform, and load streaming data into S3, Redshift, Elasticsearch Service, generic HTTP endpoints, and service providers like Datadog, New Relic, MongoDB, and Splunk, enabling near real-time analytics with existing business intelligence tools and dashboards being used today.
 
+## Kinesis Data Analytics
+
+Analyze streaming data, gain actionable insights, and respond to your business and customer needs in real time. You can quickly build SQL queries and Java applications using built-in templates and operators for common processing functions to organize, transform, aggregate, and analyze data at any scale. You can capture streaming data with [Data Streams](#kinesis-data-streams) or [Data Firehose](#kinesis-data-firehose) and use Data Analytics to query and analyze streaming data. Data Analytics can then send processed data to analytics tools so you can create alerts and respond in real-time.
+
+- Kinesis Data Analytics is serverless and takes care of everything required to continuously run your application.
+- Kinesis Data Analytics elastically scales applications to keep up with any volume of data in the incoming data stream.
+- Kinesis Data Analytics delivers sub-second processing latencies so you can generate real-time alerts, dashboards, and actionable insights.
+
 ## *Resources*
 
 - [Tutorials Dojo Kinesis Cheat Sheet](https://tutorialsdojo.com/amazon-kinesis/)
