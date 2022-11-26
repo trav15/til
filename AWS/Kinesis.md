@@ -1,4 +1,4 @@
-# AWS Kinesis
+# Amazon Kinesis
 
 Kinesis makes it easy to collect, process, and analyze real-time, streaming data. Kinesis can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications
 
@@ -28,3 +28,8 @@ Amazon Kinesis Video Streams makes it easy to securely stream video from connect
 ## *Resources*
 
 - [Tutorials Dojo Kinesis Cheat Sheet](https://tutorialsdojo.com/amazon-kinesis/)
+- [AWS docs Kinesis](https://docs.aws.amazon.com/kinesis/index.html)
+- [AWS docs Data Streams](https://docs.aws.amazon.com/streams/latest/dev/introduction.html)
+- [AWS docs Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)
+- [AWS docs Data Analytics](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/what-is.html)
+- [AWS docs Video Streams](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html)
