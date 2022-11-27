@@ -8,6 +8,7 @@
     - [Launch Configuration](#launch-configuration)
     - [Termination Policies](#termination-policies)
         - [Default Termination Policy](#default-termination-policy)
+- [Placement Groups](#placement-groups-pg)
 - [**EBS**](#ebs)
     - [EBS Volume Types](#ebs-volume-types-ebsvt)
     - [Data Lifecycle Manager (DLM)](#amazon-data-lifecycle-manager-amazon-dlm)
@@ -88,6 +89,19 @@ The default termination policy is designed to help ensure that your network arch
 - Determine which unprotected instances in the selected Availability Zone use the oldest launch configuration. If there is one such instance, terminate it.
 - If there are multiple instances to terminate based on the above criteria, determine which unprotected instances are closest to the next billing hour. (This helps you maximize the use of your EC2 instances and manage your Amazon EC2 usage costs.) If there is one such instance, terminate it.
 - If there is more than one unprotected instance closest to the next billing hour, choose one of these instances at random.
+
+## Placement groups [^pg]
+
+When you launch a new EC2 instance, the EC2 service attempts to place the instance in such a way that all of your instances are spread out across underlying hardware to minimize correlated failures. You can use placement groups to influence the placement of a group of interdependent instances to meet the needs of your workload. There is no charge for creating a placement group. Depending on the type of workload, you can create a placement group using one of the following placement strategies:
+- **Cluster** – packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of high-performance computing (HPC) applications.
+- **Partition** – spreads your instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads, such as Hadoop, Cassandra, and Kafka.
+- **Spread** – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
+
+It is recommended that you launch the number of instances that you need in the placement group in a single launch request and that you use the same instance type for all instances in the placement group. If you try to add more instances to the placement group later, or if you try to launch more than one instance type in the placement group, you increase your chances of getting an insufficient capacity error. 
+
+If you receive a *capacity error* when launching an instance in a placement group that already has running instances, stop and start all of the instances in the placement group, and try the launch again. ***Restarting the instances may migrate them to hardware that has capacity for all the requested instances***. 
+
+[^pg]: [AWS docs EC2 Placement Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
 
 ## EBS
 
