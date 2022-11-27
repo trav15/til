@@ -12,6 +12,19 @@ You can use Amazon EventBridge to run Amazon ECS tasks when certain AWS events o
 
 Amazon ECS enables you to inject sensitive data into your containers by storing your sensitive data in either **AWS Secrets Manager secrets** or **AWS Systems Manager Parameter Store parameters** and then referencing them in your container definition. The parameter that you reference can be from a different Region than the container using it, but must be from within the same account. This feature is supported by tasks using both the EC2 and Fargate launch types.
 
+## ECS Service Auto Scaling
+
+Your Amazon ECS service can optionally be configured to use Auto Scaling to adjust its desired count of tasks in your Amazon ECS service up or down in response to CloudWatch alarms.
+
+Amazon ECS Service Auto Scaling supports the following types of scaling policies:
+- Target tracking scaling policies (Recommended)—Increase or decrease the number of tasks that your service runs based on a target value for a specific metric. This is similar to the way that your thermostat maintains the temperature of your home. You select temperature and the thermostat does the rest.
+- Step scaling policies—Increase or decrease the number of tasks that your service runs based on a set of scaling adjustments, known as step adjustments, which vary based on the size of the alarm breach.
+
+The following metrics are available for ECS Service:
+- `ECSServiceAverageCPUUtilization` — Average CPU utilization of the service.
+- `ECSServiceAverageMemoryUtilization` — Average memory utilization of the service.
+- `ALBRequestCountPerTarget` — Number of requests completed per target in an Application Load Balancer target group.
+
 ## ECR
 
 Amazon Elastic Container Registry (ECR) is a managed AWS Docker registry service. ECR supports Docker Registry HTTP API V2 allowing you to use Docker CLI commands or your preferred Docker tools in maintaining your existing development workflow. *ECR stores your container images in Amazon S3.*
