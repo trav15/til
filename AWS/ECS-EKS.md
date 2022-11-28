@@ -1,3 +1,9 @@
+- [ECS](#ecs)
+    - [ECS Auto Scaling](#ecs-service-auto-scaling)
+    - [ECR](#ecr)
+- [EKS](#eks)
+- [Fargate](#aws-fargate-fg)
+
 # ECS
  
 **Amazon Elastic Container Service (ECS)** allows you to run Docker-based containers on the cloud. Amazon ECS has two launch types for operation: EC2 and Fargate. The EC2 launch type provides EC2 instances as hosts for your Docker containers. For the Fargate launch type, AWS manages the underlying hosts so you can focus on managing your containers instead. The details and configuration on how you want to run your containers are defined on the **ECS Task Definition** which includes options on networking mode. 
@@ -32,6 +38,14 @@ Amazon Elastic Container Registry (ECR) is a managed AWS Docker registry service
 # EKS
 
 **Amazon Elastic Kubernetes Service (EKS)** provisions and scales the Kubernetes control plane, including the API servers and backend persistence layer, *across multiple AWS availability zones for high availability* and fault tolerance. Amazon EKS automatically detects and replaces unhealthy control plane nodes and provides patching for the control plane. Amazon EKS is integrated with many AWS services to provide scalability and security for your applications. These services include Elastic Load Balancing for load distribution, IAM for authentication, Amazon VPC for isolation, and AWS CloudTrail for logging .Kubernetes is considered cloud-agnostic because it allows you to move your containers to other cloud service providers.
+
+# AWS Fargate [^fg]
+
+AWS Fargate is a **serverless compute engine for containers** that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). Fargate makes it easy for you to focus on building your applications. Fargate removes the need to provision and manage servers, lets you specify and pay for resources per application, and improves security through application isolation by design.
+
+Fargate allocates the right amount of compute, eliminating the need to choose instances and scale cluster capacity. You only pay for the resources required to run your containers, so there is no over-provisioning and paying for additional servers. Fargate runs each task or pod in its own kernel providing the tasks and pods their own isolated compute environment. This enables your application to have workload isolation and improved security by design. 
+
+[^fg]:[AWS docs Fargate](https://aws.amazon.com/fargate/)
 
 
 ## *Resources*
