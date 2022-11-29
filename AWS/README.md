@@ -1,5 +1,7 @@
 # Amazon Web Services
 
+[Exam Tips](ExamTips.md)
+
 ## Services
 
 - [IAM](IAM.md)
