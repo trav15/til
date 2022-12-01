@@ -2,6 +2,10 @@
 
 Amazon CloudFront is a fast **content delivery network (CDN) service** that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment. CloudFront is integrated with AWS – both physical locations that are directly connected to the AWS global infrastructure, as well as other AWS services and works seamlessly with services, including AWS Shield for DDoS mitigation.
 
+CloudFront delivers your content through a worldwide network of data centers called edge locations. When a user requests content that you’re serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so that content is delivered with the best possible performance.
+- If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
+- If the content is not in that edge location, CloudFront retrieves it from an origin that you’ve defined
+
 The `Cache-Control` and `Expires` headers control how long objects stay in the cache. The `Cache-Control max-age` directive lets you specify how long (in seconds) you want an object to remain in the cache before CloudFront gets the object again from the origin server. Typically, CloudFront serves an object from an edge location until the cache duration that you specified passes — that is, until the object expires. After it expires, the next time the edge location gets a user request for the object, CloudFront forwards the request to the origin server to verify that the cache contains the latest version of the object. The minimum expiration time CloudFront supports is 0 seconds for web distributions and 3600 seconds for RTMP distributions. *If the max-age directive is set to zero then the request is always directed to the origin server.*
 
 
@@ -30,3 +34,4 @@ CloudFront signed URLs and signed cookies provide the same basic functionality: 
 
 - [Origin failover AWS docs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html)
 - [Private content AWS docs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-choosing-signed-urls-cookies.html)
+- [Tutorials Dojo CloudFront Cheat Sheet](https://tutorialsdojo.com/amazon-cloudfront/)
