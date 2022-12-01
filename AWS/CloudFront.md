@@ -14,10 +14,19 @@ You specify **origin servers**, like an S3 bucket or your own HTTP server, from 
 - CloudFront assigns a domain name to your new distribution that you can see in the CloudFront console.
 - CloudFront sends your distribution’s configuration (but not your content) to all of its edge locations—collections of servers in geographically dispersed data centers where CloudFront caches copies of your objects.
 
+## CloudFront Origins
+
+- **Using S3 buckets for your origin** – you place any objects that you want CloudFront to deliver in an S3 bucket.
+- **Using S3 buckets configured as website endpoints** for your origin
+- **Using a mediastore container or a media package channel** for your origin – you can set up an S3 bucket that is configured as a MediaStore container, or create a channel and endpoints with MediaPackage. Then you create and configure a distribution in CloudFront to stream the video.
+- **Using an Application Load Balancer** – if your origin is more than one HTTP server, you can use an ALB to distribute traffic to the web servers.
+- **Using a Lambda function URL** – you don’t need to use an API Gateway or ALB since a Lambda web application can be called directly from the function URL.
+- **Using EC2 or other custom origins** – A custom origin is an HTTP server, for example, a web server.
+- **Using CloudFront Origin Groups for origin failover** – use **[origin failover](#origin-failover)** to designate a primary origin for CloudFront plus a second origin that CloudFront automatically switches to when the primary origin returns specific HTTP status code failure responses.
+
 ## Cache Headers
 
 The `Cache-Control` and `Expires` headers control how long objects stay in the cache. The `Cache-Control max-age` directive lets you specify how long (in seconds) you want an object to remain in the cache before CloudFront gets the object again from the origin server. Typically, CloudFront serves an object from an edge location until the cache duration that you specified passes — that is, until the object expires. After it expires, the next time the edge location gets a user request for the object, CloudFront forwards the request to the origin server to verify that the cache contains the latest version of the object. The minimum expiration time CloudFront supports is 0 seconds for web distributions and 3600 seconds for RTMP distributions. *If the max-age directive is set to zero then the request is always directed to the origin server.*
-
 
 ## Origin Failover
 
