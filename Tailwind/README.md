@@ -14,6 +14,20 @@ Or specify hex or RBG codes for one-off colors:
 ``` 
 https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values
 
+## Add Google Fonts to Tailwind
+
+- Add your Google Fonts `@import` to top of `/styles/globals.css` file and remove any `font-family` declarations (i.e., in `html, body {}`)
+- In your `tailwind.config.js` files add the font to the theme fontFamily:
+    ```js
+      theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Heebo', ...defaultTheme.fontFamily.sans],
+            },
+        },
+      },
+    ```
+
 # Additional CSS tips
 
 ## Avoid use of px when setting font-size
