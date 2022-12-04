@@ -7,6 +7,14 @@ Amazon Aurora is a fully managed relational database engine that’s compatible 
    - You can share your Amazon Aurora DB clusters with other AWS accounts for quick and efficient database cloning.
 - Aurora is fault-tolerant and self-healing.
 
+## DB Clusters
+
+An Aurora DB cluster consists of one or more DB instances and a cluster volume that manages the data for those DB instances. An Aurora cluster volume is a virtual database storage volume that spans multiple AZs, with each AZ having a copy of the DB cluster data.
+
+Cluster Types:
+- **Primary DB instance** – Supports read and write operations, and performs all of the data modifications to the cluster volume. Each Aurora DB cluster has one primary DB instance.
+- **Aurora Replica** – Connects to the same storage volume as the primary DB instance and supports only read operations. Each Aurora DB cluster can have up to 15 Aurora Replicas in addition to the primary DB instance. Aurora automatically fails over to an Aurora Replica in case the primary DB instance becomes unavailable. You can specify the failover priority for Aurora Replicas. Aurora Replicas can also offload read workloads from the primary DB instance.
+
 Take note that a _non-Serverless DB cluster for Aurora is called a **provisioned DB cluster**_. Aurora Serverless clusters and provisioned clusters both have the same kind of high-capacity, distributed, and highly available storage volume.
 - When you work with Amazon Aurora without Aurora Serverless (provisioned DB clusters), you can choose your DB instance class size and create Aurora Replicas to increase read throughput. If your workload changes, *you can modify the DB instance class size and change the number of Aurora Replicas*. This model works well when the **database workload is predictable**, because you can adjust capacity manually based on the expected workload.
 - Amazon Aurora typically involves a cluster of DB instances instead of a single instance. *Each connection is handled by a specific DB instance*. When you connect to an Aurora cluster, the host name and port that you specify point to an intermediate handler called an **endpoint**. Aurora uses the endpoint mechanism to abstract these connections. Thus, you don’t have to hardcode all the hostnames or write your own logic for load-balancing and rerouting connections when some DB instances aren’t available.
