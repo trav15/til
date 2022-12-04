@@ -17,10 +17,20 @@ Cluster Types:
 
 Take note that a _non-Serverless DB cluster for Aurora is called a **provisioned DB cluster**_. Aurora Serverless clusters and provisioned clusters both have the same kind of high-capacity, distributed, and highly available storage volume.
 - When you work with Amazon Aurora without Aurora Serverless (provisioned DB clusters), you can choose your DB instance class size and create Aurora Replicas to increase read throughput. If your workload changes, *you can modify the DB instance class size and change the number of Aurora Replicas*. This model works well when the **database workload is predictable**, because you can adjust capacity manually based on the expected workload.
+
+## Aurora Endpoints
+
 - Amazon Aurora typically involves a cluster of DB instances instead of a single instance. *Each connection is handled by a specific DB instance*. When you connect to an Aurora cluster, the host name and port that you specify point to an intermediate handler called an **endpoint**. Aurora uses the endpoint mechanism to abstract these connections. Thus, you don’t have to hardcode all the hostnames or write your own logic for load-balancing and rerouting connections when some DB instances aren’t available.
 - For certain Aurora tasks, *different instances or groups of instances perform different roles*. For example, the primary instance handles all data definition language (DDL) and data manipulation language (DML) statements. Up to 15 Aurora Replicas handle read-only query traffic.
 - Using **endpoints**, you can map each connection to the appropriate instance or group of instances based on your use case. For example, to perform DDL statements you can connect to whichever instance is the primary instance. *To perform queries, you can connect to the reader endpoint, with Aurora automatically performing load-balancing among all the Aurora Replicas*. For clusters with DB instances of different capacities or configurations, you can connect to custom endpoints associated with different subsets of DB instances. For diagnosis or tuning, you can connect to a specific instance endpoint to examine details about a specific DB instance.
 - The custom endpoint provides load-balanced database connections based on criteria other than the read-only or read-write capability of the DB instances. *For example, you might define a custom endpoint to connect to instances that use a particular AWS instance class or a particular DB parameter group*. Then you might tell particular groups of users about this custom endpoint. For example, you might direct internal users to low-capacity instances for report generation or ad hoc (one-time) querying, and direct production traffic to high-capacity instances.
+
+### Types of Endpoints
+
+- **Cluster endpoint** – connects to the current primary DB instance for a DB cluster. This endpoint is the only one that can perform write operations. Each Aurora DB cluster has one cluster endpoint and one primary DB instance.
+- **Reader endpoint** – connects to one of the available Aurora Replicas for that DB cluster. Each Aurora DB cluster has one reader endpoint. The reader endpoint provides load-balancing support for read-only connections to the DB cluster. Use the reader endpoint for read operations, such as queries. You can’t use the reader endpoint for write operations.
+- **Custom endpoint** – represents a set of DB instances that you choose. When you connect to the endpoint, Aurora performs load balancing and chooses one of the instances in the group to handle the connection. You define which instances this endpoint refers to, and you decide what purpose the endpoint serves.
+- **Instance endpoint** – connects to a specific DB instance within an Aurora cluster. The instance endpoint provides direct control over connections to the DB cluster. The main way that you use instance endpoints is to diagnose capacity or performance issues that affect one specific instance in an Aurora cluster.
 
 ## Aurora Serverless [^1]
 
