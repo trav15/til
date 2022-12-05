@@ -1,5 +1,10 @@
 # Next.js
 
+## Other Next.js lessons
+
+- [More Password Protect](next-password-protect.md)
+- [Send Form Data to Google Sheets](FormDataToGoogleSheets.md)
+
 ## Pre-rendering
 
 By default, Next.js pre-renders every page. This means that Next.js generates HTML for each page in advance, *instead of having it all done by client-side JavaScript*. Pre-rendering can result in better performance and SEO.
@@ -78,10 +83,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 ## Environment Variables
 
 Use a `.env.local` file in the root directory of the project to use environment variables in development. A variable can be accessed as `process.env.VARIABLE_NAME`.
-
-# Other Next.js lessons
-
-- [More Password Protect](next-password-protect.md)
 
 ## *Resources*
 
