@@ -17,6 +17,7 @@
 - [Route 53](Route53.md)
 - [API Gateway](APIGateway.md)
 - [CloudFront](CloudFront.md)
+- [Global Accelerator](GlobalAccelerator.md)
 - [S3](S3.md)
 - [EFS](EFS.md)
 - [Kinesis](Kinesis.md)
