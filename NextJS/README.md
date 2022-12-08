@@ -4,6 +4,7 @@
 
 - [More Password Protect](next-password-protect.md)
 - [Send Form Data to Google Sheets](FormDataToGoogleSheets.md)
+- [Deploy to AWS using Amplify](AWSAmplify.md)
 
 ## Pre-rendering
 
