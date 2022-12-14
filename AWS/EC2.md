@@ -1,5 +1,6 @@
 # EC2 - Elastic Cloud Compute
 
+-[SSH into EC2](#ssh-into-ec2)
 - [Instance Types](#instance-types)
 - [Hibernation](#hibernation)
 - [Reserved Instances](#reserved-instances)
@@ -16,6 +17,32 @@
     - [Recycle Bin](#recycle-bin)
 - [Compute Optimizer](#aws-compute-optimizer-co)
 - [Elastic Network Interface](#elastic-network-interfaces-eni)
+
+## SSH into EC2
+
+From a Mac terminal
+- Ensure keypair is downloaded and you are in that directory
+- Enter the following commands:
+```
+chmod 400 mynewkeypair.pem
+```
+```
+ssh ec2-user@[EC2 Public IP] -i [key pair filename]
+ssh ec2-user@18.213.115.251 -i mynewkeypair.pem
+```
+- For servers other than EC2 replace `ec2-user` with the following:
+    - Ubuntu AMI : `ubuntu`
+    - OPENVPN AMI : `root`
+- Answer yes to continue connecting
+- Once logged in elevate privileges
+```
+sudo su
+```
+- Update packages
+```
+yum update -y
+```
+
 
 ## Instance Types
 
