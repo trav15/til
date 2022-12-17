@@ -14,6 +14,15 @@ AWS Lambda *supports the synchronous and asynchronous invocation of a Lambda fun
 
 When you create or update Lambda functions that use environment variables, *AWS Lambda encrypts them using the AWS Key Management Service*. When your Lambda function is invoked, those values are decrypted and made available to the Lambda code. The first time you create or update Lambda functions that use environment variables in a region, a *default service key is created for you automatically within AWS KMS*. This key is used to encrypt environment variables. However, _if you wish to use **encryption helpers** and use KMS to encrypt environment variables after your Lambda function is created, you must create your own AWS KMS key and choose it instead of the default key_. The default key will give errors when chosen. Creating your own key gives you more flexibility, including the ability to create, rotate, disable, and define access controls, and to audit the encryption keys used to protect your data.
 
+## Lambda@Edge
+
+Lambda@Edge lets you _run Lambda functions to customize the content that CloudFront delivers_, executing the functions in AWS locations closer to the viewer. The functions run in response to CloudFront events, without provisioning or managing servers. You can _use Lambda functions to change CloudFront requests and responses_ at the following points:
+- After CloudFront receives a request from a viewer (viewer request)
+- Before CloudFront forwards the request to the origin (origin request)
+- After CloudFront receives the response from the origin (origin response)
+- Before CloudFront forwards the response to the viewer (viewer response)
+
+
 ## *Resources*
 
 - [Tutorials Dojo Lambda Cheat Sheet](https://tutorialsdojo.com/aws-lambda/)
