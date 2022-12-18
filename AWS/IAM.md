@@ -1,5 +1,19 @@
 # IAM Identity Access Management
 
+Control who is authenticated (signed in) and [authorized](#authorization) (has permissions) to use resources. The AWS account **root user** is a single sign-in identity that has complete access to all AWS services and resources in the account. Be sure to add MFA to the root user and do not use for provisioning resources. 
+
+You can grant other people permission to administer and use resources in your AWS account without having to share your password or access key. You can grant different permissions to different people for different resources.
+
+IAM has been validated as being compliant with Payment Card Industry (PCI) Data Security Standard (DSS).
+
+IAM is *GLOBAL* and *eventually consistent*. IAM achieves high availability by replicating data across multiple servers within Amazon’s data centers around the world.
+
+Your unique account sign-in page URL:
+https://My_AWS_Account_ID.signin.aws.amazon.com/console/
+
+You can generate and download a credential report that lists all users on your AWS account. The report also shows the status of passwords, access keys, and MFA devices.
+
+
 ## Authorization
 
 AWS uses values from the request context to check for policies that apply to the request. It then uses the policies to determine whether to allow or deny the request.
