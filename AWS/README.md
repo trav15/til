@@ -25,6 +25,7 @@
 - [CloudTrail](CloudTrail.md)
 - [SQS and SNS](SQS-SNS.md)
 - [WAF and Shield](WAF-Shield.md)
+- [Amazon Lex](Lex.md)
 
 ## Topics
 
