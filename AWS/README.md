@@ -8,6 +8,7 @@
 - [RDS](RDS.md)
 - [Aurora](Aurora.md)
 - [DynamoDB](DynamoDB.md)
+- [ElastiCache](ElastiCache.md)
 - [AWS Lake Formation](LakeFormation.md)
 - [VPC](VPC.md)
 - [EC2](EC2.md)
