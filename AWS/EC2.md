@@ -1,6 +1,6 @@
 # EC2 - Elastic Cloud Compute
 
--[SSH into EC2](#ssh-into-ec2)
+- [SSH into EC2](#ssh-into-ec2)
 - [Instance Types](#instance-types)
 - [Hibernation](#hibernation)
 - [Reserved Instances](#reserved-instances)
@@ -59,6 +59,10 @@ yum update -y
 | | F – FPGA | Reconfigurable FPGA instances |
 | Storage Optimized | I – IOPSD – Density | High storage instances, low latency, high random I/O performance, high sequential read throughput, and high IOPS |
 | | H – High disk throughput | HDD-based local storage for high disk throughput |
+
+### Instance Metadata
+
+Instance Metadata is the data about your instance that you can use to configure or manage the running instance. Instance metadata is divided into categories, for example, hostname, events, and security groups. To view all categories of instance metadata from within a running instance, use the http://169.254.169.254/latest/meta-data/ URI.
 
 ## Hibernation
 
