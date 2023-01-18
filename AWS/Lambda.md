@@ -14,6 +14,17 @@ AWS Lambda *supports the synchronous and asynchronous invocation of a Lambda fun
 
 When you create or update Lambda functions that use environment variables, *AWS Lambda encrypts them using the AWS Key Management Service*. When your Lambda function is invoked, those values are decrypted and made available to the Lambda code. The first time you create or update Lambda functions that use environment variables in a region, a *default service key is created for you automatically within AWS KMS*. This key is used to encrypt environment variables. However, _if you wish to use **encryption helpers** and use KMS to encrypt environment variables after your Lambda function is created, you must create your own AWS KMS key and choose it instead of the default key_. The default key will give errors when chosen. Creating your own key gives you more flexibility, including the ability to create, rotate, disable, and define access controls, and to audit the encryption keys used to protect your data.
 
+## Lambda Throttling
+
+Lambda Throttling refers to the rejection of the Lambda function to invocation requests. At this event, the Lambda will return a throttling error exception which you need to handle. This happens because your current concurrency execution count is greater than your concurrency limit.
+Throttling is intended to protect your resources and downstream applications. Though Lambda automatically scales to accommodate your incoming traffic, your function can still be throttled for various reasons.
+
+The following are the recommended solutions to handle throttling issues:
+- Configure **reserved concurrency** – by default, there are 900 unreserved concurrencies shared across all functions in a region. To prevent other functions from consuming the available concurrent executions, reserve a portion of it to your Lambda function based on the demand of your current workload.
+- Use **exponential backoff** in your app – a technique that uses progressively longer waits between retries for consecutive error responses. This can be used to handle throttling issues by preventing collision between simultaneous requests.
+- Use a **dead-letter queue** – If you’re using Amazon S3 and Amazon Cloudwatch events, configure your function with a dead letter queue to catch any events that are discarded due to constant throttles. This can protect your data if you’re seeing significant throttling.
+- Request a **service quota increase** – you can reach AWS support to request for a higher service quota for concurrent executions.
+
 ## Lambda@Edge
 
 Lambda@Edge lets you _run Lambda functions to customize the content that CloudFront delivers_, executing the functions in AWS locations closer to the viewer. The functions run in response to CloudFront events, without provisioning or managing servers. You can _use Lambda functions to change CloudFront requests and responses_ at the following points:
@@ -27,3 +38,5 @@ Lambda@Edge lets you _run Lambda functions to customize the content that CloudFr
 
 - [Tutorials Dojo Lambda Cheat Sheet](https://tutorialsdojo.com/aws-lambda/)
 - [AWS Lambda Env Variables docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#env_encrypt)
+- https://aws.amazon.com/premiumsupport/knowledge-center/lambda-troubleshoot-throttling/
+- https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html
