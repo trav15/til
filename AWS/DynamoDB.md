@@ -16,6 +16,14 @@ When you create a DynamoDB Gateway endpoint, _**you specify the VPC** where it w
 
 DynamoDB **on-demand backups** are available at no additional cost beyond the normal pricing that’s associated with backup storage size. DynamoDB on-demand backups cannot be copied to a different account or Region. ***To create backup copies across AWS accounts and Regions and for other advanced features, you should use AWS Backup***. With AWS Backup, you can configure backup policies and monitor activity for your AWS resources and on-premises workloads in one place. Using DynamoDB with AWS Backup, *you can copy your on-demand backups across AWS accounts and Regions*, add cost allocation tags to on-demand backups, and transition on-demand backups to cold storage for lower costs. ***To use these advanced features, you must opt into AWS Backup***. Opt-in choices apply to the specific account and AWS Region, so you might have to opt into multiple Regions using the same account.
 
+## API Retries
+
+When your program sends a request, DynamoDB attempts to process it. If the request is successful, DynamoDB returns an HTTP success status code (`200 OK`), along with the results from the requested operation. If the request is unsuccessful, DynamoDB returns an error.
+
+An HTTP `400` status code indicates a problem with your request, such as authentication failure, missing required parameters, or exceeding a table’s provisioned throughput. You have to fix the issue in your application before submitting the request again.
+
+`ProvisionedThroughputExceededException` means that your request rate is too high. The AWS SDKs for DynamoDB automatically retries requests that receive this exception. Your request is eventually successful unless your retry queue is too large to finish. To handle this error, you can reduce the frequency of requests using error retries and exponential backoff.
+
 ## DynamoDB Streams
 
 A **DynamoDB stream** is an ordered flow of information about changes to items in an Amazon DynamoDB table. When you enable a stream on a table, DynamoDB captures information about every modification to data items in the table. Whenever an application creates, updates, or deletes items in the table, DynamoDB Streams writes a **stream record** with the primary key attribute(s) of the items that were modified. A stream record contains information about a data modification to a single item in a DynamoDB table. You can configure the stream so that the stream records capture additional information, such as the “before” and “after” images of modified items.
@@ -29,3 +37,4 @@ Amazon DynamoDB is integrated with AWS Lambda so that you can create triggers—
 
 - [Tutorials Dojo Cheat Sheet](https://tutorialsdojo.com/amazon-dynamodb/)
 [^1]: [Partition key AWS docs](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/)
+- [AWS docs API retries](https://docs.aws.amazon.com/general/latest/gr/api-retries.html)
