@@ -21,6 +21,25 @@ At least 2 subnets must be specified when creating this type of load balancer. *
 
 ***ALBs can also route and load balance gRPC traffic between microservices or between gRPC-enabled clients and services***. This will allow customers to seamlessly introduce gRPC traffic management in their architectures without changing any of the underlying infrastructure on their clients or services.
 
+### ALB w/Lambda
+
+Application Load Balancers provide two advanced options that you may want to configure when you use ALBs with AWS Lambda: support for multi-value headers and health check configurations. You can set up these options in Target Groups section on the Amazon EC2 console.
+
+If requests from a client or responses from a Lambda function contain headers with multiple values or contains the same header multiple times, or query parameters with multiple values for the same key, you can enable support for multi-value header syntax. After you enable multi-value headers, the headers and query parameters exchanged between the load balancer and the Lambda function use arrays instead of strings.
+
+For example, suppose the client supplies a query string like:
+```
+?name=foo&name=bar
+```
+If you’ve enabled multi-value headers, ALB supplies these duplicate parameters in the event object as:
+```
+‘name’: [‘foo’, ‘bar’]
+```
+ALB applies the same processing to duplicate HTTP headers.
+
+If you do not enable multi-value header syntax and a header or query parameter has multiple values, the load balancer uses the last value that it receives.
+https://aws.amazon.com/blogs/networking-and-content-delivery/lambda-functions-as-targets-for-application-load-balancers/
+
 ## *Resources*
 
 - [Tutorials Dojo ELB Cheat Sheet](https://tutorialsdojo.com/aws-elastic-load-balancing-elb/)
