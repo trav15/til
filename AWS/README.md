@@ -35,3 +35,4 @@
 - [Migration](Migration.md)
 - [Decoupling](Decoupling.md)
 - [Security](Security.md)
+- [CLI](CLI.md)
