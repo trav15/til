@@ -30,3 +30,4 @@ To perform envelope encryption using KMS keys, you must first generate a data ke
 ## *Resources*
 
 - [Tutorials Dojo KMS Cheat Sheet](https://tutorialsdojo.com/aws-key-management-service-aws-kms/)
+- [AWS docs Envelope Encryption](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping)
