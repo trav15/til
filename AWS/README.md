@@ -15,6 +15,7 @@
 - [Lambda](Lambda.md)
 - [Step Functions](StepFunctions.md)
 - [ECS and EKS](ECS-EKS.md)
+- [Elastic Beanstalk](ElasticBeanstalk.md)
 - [KMS](KMS.md)
 - [ELB](ELB.md)
 - [Route 53](Route53.md)
