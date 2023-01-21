@@ -34,15 +34,21 @@ A **trace ID** tracks the path of a request through your application. A **trace*
 
 To ensure efficient tracing and provide a representative sample of the requests that your application serves, the X-Ray SDK applies a sampling algorithm to determine which requests get traced. By default, the X-Ray SDK records the first request each second, and five percent of any additional requests.
 
-For advanced tracing, you can drill down to traces for individual requests, or use **filter expressions** to find traces related to specific paths or users.
+For advanced tracing, you can drill down to traces for individual requests, or use [filter expressions](#filter-expressions) to find traces related to specific paths or users.
 
 ## Groups
 
 **Groups** are a collection of traces that are defined by a filter expression. Groups are identified by their name or an Amazon Resource Name, and contain a filter expression. 
 
+## Filter Expressions
+
+Use filter expressions to view a service map or traces for a specific request, service, connection between two services (an edge), or requests that satisfy a condition. X-Ray provides a filter expression language for filtering requests, services, and edges based on data in request headers, response status, and indexed fields on the original segments.
+
+When you choose a time period of traces to view in the X-Ray console, you might get more results than the console can display. In the upper-right corner, the console shows the number of traces that it scanned and whether there are more traces available. *You can use a filter expression to narrow the results to just the traces that you want to find*.
+
 ## Annotations 
 
-**Annotations** are simple key-value pairs that are indexed for use with filter expressions. Use annotations to record data that you want to use to group traces.
+**Annotations** are simple key-value pairs that are indexed for use with filter expressions. Use annotations to record data that you want to use to group traces in the console, or when calling the `GetTraceSummaries` API. X-Ray indexes up to 50 annotations per trace.
 - A segment can contain multiple annotations.
 - System-defined annotations include data added to the segment by AWS services, whereas user-defined annotations are metadata added to a segment by a developer.
 
@@ -55,5 +61,6 @@ When an exception, error or fault occurs while your application is serving an in
 ## *Resources*
 
 - [AWS docs X-Ray](https://docs.aws.amazon.com/xray/index.html)
+- [AWS docs Using Filter Expressions](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html)
 - [Tutorials Dojo X-Ray cheat sheet](https://tutorialsdojo.com/aws-x-ray/)
 
