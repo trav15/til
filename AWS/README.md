@@ -27,6 +27,7 @@
 - [Kinesis](Kinesis.md)
 - [CloudWatch](CloudWatch.md)
 - [CloudTrail](CloudTrail.md)
+- [AWS X-Ray](X-ray.md)
 - [SQS and SNS](SQS-SNS.md)
 - [WAF and Shield](WAF-Shield.md)
 - [Amazon Lex](Lex.md)
