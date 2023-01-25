@@ -58,6 +58,12 @@ When you choose a time period of traces to view in the X-Ray console, you might 
 
 When an exception, error or fault occurs while your application is serving an instrumented request, the X-Ray SDK records details about the error, including the stack trace, if available.
 
+## With Elastic Beanstalk
+
+You can use the AWS Elastic Beanstalk console or a configuration file to run the AWS X-Ray daemon on the instances in your environment.
+
+To relay trace data from your application to AWS X-Ray, you can run the X-Ray daemon on your Elastic Beanstalk environment’s Amazon EC2 instances. Elastic Beanstalk platforms provide a configuration option that you can set to run the daemon automatically. You can enable the daemon in a configuration file in your source code or by choosing an option in the Elastic Beanstalk console. When you enable the configuration option, the daemon is installed on the instance and runs as a service.
+
 ## *Resources*
 
 - [AWS docs X-Ray](https://docs.aws.amazon.com/xray/index.html)
