@@ -5,6 +5,7 @@
 ## Services
 
 - [IAM](IAM.md)
+- [Cognito](Cognito.md)
 - [RDS](RDS.md)
 - [Aurora](Aurora.md)
 - [DynamoDB](DynamoDB.md)
