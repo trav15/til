@@ -5,7 +5,7 @@
     
     Then go through the unflagged the questions for review (these are the questions you are unsure of). Don't skip the flagged ones and always check your work even if you are *certain* the answer is correct.
 
-- Every 20-30 minutes give yourself a quick break to close your eyes and regain focus. It doesn't have to be a lond break but the point is to clear your mind and refocus. 
+- Every 20-30 minutes give yourself a quick break to close your eyes and regain focus. It doesn't have to be a long break but the point is to clear your mind and refocus. 
 
 ## *Resources* 
 
